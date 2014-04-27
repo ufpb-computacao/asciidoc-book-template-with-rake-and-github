@@ -58,12 +58,11 @@ end
 desc "Sync, build and open book file"
 task :book => [:clean, :archive, "book:build", "book:open"]
 
-
 namespace "book" do
 
   desc "Build book"
   task :build => ['sync'] do
-    system "#{@A2X_BIN} -v -f pdf -k #{@RELEASE_DIR}/#{@BOOK_SOURCE}"
+    system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE}"
   end
 
   desc "open pdf book"
