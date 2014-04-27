@@ -14,6 +14,7 @@ RELEASE_BOOK  = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.pdf"
 RELEASE_WIP_ADOC =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
 RELEASE_WIP_PDF  =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
 OPEN_PDF_CMD="xdg-open"
+A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=`git describe` -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian' -a livro-pdf"
 
 directory @RELEASE_DIR
 
@@ -33,7 +34,7 @@ namespace "wip" do
   end
 
   file RELEASE_WIP_PDF do
-    system "#{@A2X_BIN} -v -f pdf #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
+    system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
   
   desc "Open wip pdf"
@@ -48,7 +49,7 @@ namespace "wip" do
 
   desc "build book from #{@RELEASE_DIR}"
   task :build => [WIP_ADOC, :sync] do
-    system "#{@A2X_BIN} -v -f pdf -k #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
+    system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
 
 end
