@@ -1,44 +1,29 @@
+<edition>{edition}</edition>
 
-<!--
-  rudder-doc-docinfo.xml
-  DocBook document information file for rudder-doc.txt.
--->
+<revhistory>
 
-  <edition>{edition}</edition>
-
-  <revhistory>
+  <revision>
+    <revnumber>v0.1.0</revnumber>
+    <date>Março 2013</date>
+    <authorinitials>Autor1, Autor2</authorinitials>
+    <revremark>
+      Primeira versão do livro.
+    </revremark>
+  </revision>
   
-    <revision>
-      <revnumber>v0.1.0</revnumber>
-      <date>Março 2013</date>
-      <authorinitials>Autor 1, Autor 2</authorinitials>
-      <revremark>
-        Primeira versão do livro
-      </revremark>
-    </revision>
-    
-  </revhistory>
+</revhistory>
 
+<authorgroup>
+  <author>
+    <firstname>Nome</firstname>
+    <surname>Sobrenome</surname>
+  </author>
+</authorgroup>
 
-  <authorgroup>
-    <author>
-      <firstname>Nome</firstname>
-      <surname>Sobrenome</surname>
-      <affiliation>
-        <jobtitle>Professor</jobtitle>
-        <orgname>Universidade Federal da Paraíba</orgname>
-      </affiliation>
-      <authorblurb>
-        <para>
-          Principal contribuidor do livro.
-        </para>
-      </authorblurb>
-    </author>
-  </authorgroup>
+<othercredit>
+    <firstname>Eduardo</firstname>
+    <surname>Medeiros</surname>
+    <othername>Santana</othername>
+  <contrib>Editor</contrib>
+</othercredit>
 
-  <othercredit>
-      <firstname>Eduardo</firstname>
-      <surname>Medeiros</surname>
-      <othername>Santana</othername>
-    <contrib>Editor</contrib>
-  </othercredit>
