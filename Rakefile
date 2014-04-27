@@ -29,6 +29,9 @@ namespace "wip" do
     cp "#{@BOOK_SOURCE}", "#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
 
+  file WIP_ADOC => "new" do
+  end
+
   file RELEASE_WIP_PDF do
     system "#{@A2X_BIN} -v -f pdf #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
@@ -44,7 +47,7 @@ namespace "wip" do
   end
 
   desc "build book from #{@RELEASE_DIR}"
-  task :build => :sync do
+  task :build => [WIP_ADOC, :sync] do
     system "#{@A2X_BIN} -v -f pdf -k #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
 
