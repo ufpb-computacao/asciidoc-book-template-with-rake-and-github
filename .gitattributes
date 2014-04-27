@@ -1,0 +1,17 @@
+* text=auto
+
+*.asc text
+*.adoc text
+*.asciidoc text
+*.md text
+*.txt text
+*.c text
+*.h text
+*.out text
+*.html text
+*.xml text
+*.dot text
+*.svg eol=lf
+*.eps binary
+*.jpg binary
+*.png binary
