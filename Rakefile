@@ -13,10 +13,10 @@ RELEASE_BOOK_SOURCE = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.asc"
 RELEASE_BOOK  = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.pdf"
 RELEASE_WIP_ADOC =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
 RELEASE_WIP_PDF  =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
-OPEN_PDF_CMD="xdg-open"
+OPEN_PDF_CMD=`git config --get producao.pdfviewer`.strip
 A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=`git describe` -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian' -a livro-pdf"
 PROJECT_NAME = File.basename(Dir.getwd)
-LIVRO_URL = `git config --get livro.url`
+LIVRO_URL = `git config --get livro.url`.strip
 
 directory @RELEASE_DIR
 
@@ -43,7 +43,8 @@ namespace "wip" do
   end
   
   desc "Open wip pdf"
-  task "open" => RELEASE_WIP_PDF do |t|
+  task :open => RELEASE_WIP_PDF do |t|
+      puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
       system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
   end
 
@@ -137,4 +138,14 @@ end
 desc "Open orginal pdf to work"
 task :original do
     sh "#{OPEN_PDF_CMD} original/original.pdf"
+end
+
+
+namespace "config" do
+
+  desc "Configure open command. xdg-open for ubuntu and open for osx"
+  task :pdfviewer, [:app] do |t,args|
+    sh "git config --global producao.pdfviewer #{args.app}"
+  end
+
 end
