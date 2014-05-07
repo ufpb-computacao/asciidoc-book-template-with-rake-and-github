@@ -30,10 +30,12 @@ task :edit => ["wip:edit"]
 namespace "wip" do
 
   desc "Create new wip file from book source"
-  task "new" => [WIP_ADOC]
+  task "new" do
+    cp "#{@BOOK_SOURCE}", "#{@BOOK_SOURCE_DIR}/wip.adoc"
+  end
 
   file WIP_ADOC do
-    cp "#{@BOOK_SOURCE}", "#{@BOOK_SOURCE_DIR}/wip.adoc"
+    Rake::Task["wip:new"].invoke
   end
 
   file RELEASE_WIP_PDF do
