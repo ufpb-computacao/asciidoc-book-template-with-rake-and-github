@@ -147,8 +147,8 @@ namespace "config" do
 
 end
 
-desc "Update rakefile"
-task :update do
-  `wget https://raw.githubusercontent.com/edusantana/novo-livro/master/Rakefile`
+desc "Download new Rakefile"
+task :uprake do
+  `wget --output-document=Rakefile https://raw.githubusercontent.com/edusantana/novo-livro/master/Rakefile`
 end
 
