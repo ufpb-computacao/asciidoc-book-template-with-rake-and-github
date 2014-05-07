@@ -1,3 +1,4 @@
+require 'net/http'
 require 'rake/clean'
 
 task :default => [:wip]
@@ -28,11 +29,7 @@ task :wip => [WIP_ADOC, "sync", "wip:build", "wip:open"]
 namespace "wip" do
 
   desc "Create new wip file from book source"
-  task "new" => [:remove_adoc, WIP_ADOC]
-
-  task :remove_adoc do
-    rm WIP_ADOC
-  end
+  task "new" => [WIP_ADOC]
 
   file WIP_ADOC do
     cp "#{@BOOK_SOURCE}", "#{@BOOK_SOURCE_DIR}/wip.adoc"
@@ -149,3 +146,9 @@ namespace "config" do
   end
 
 end
+
+desc "Update rakefile"
+task :update do
+  `wget https://raw.githubusercontent.com/edusantana/novo-livro/master/Rakefile`
+end
+
