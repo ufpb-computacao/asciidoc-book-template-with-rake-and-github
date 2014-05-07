@@ -25,6 +25,7 @@ CLEAN.include('releases')
 
 desc "Sync, build and open wip file"
 task :wip => [WIP_ADOC, "sync", "wip:build", "wip:open"]
+task :edit => ["wip:edit"]
 
 namespace "wip" do
 
@@ -48,6 +49,11 @@ namespace "wip" do
   desc "open docbook xml file"
   task "xml" do
     system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.xml"
+  end
+
+  desc "Edit source"
+  task "edit" do
+    system "gvim #{WIP_ADOC}"
   end
 
   desc "build book from #{@RELEASE_DIR}"
@@ -76,6 +82,11 @@ namespace "book" do
   desc "open docbook xml file"
   task "xml" do
     system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.xml"
+  end
+
+  desc "Edit source"
+  task "edit" do
+    system "gvim #{@BOOK_SOURCE}"
   end
   
   desc "Release new edition book"
