@@ -128,7 +128,7 @@ namespace "tag" do
   end
   
   desc "Delete a tag applied."
-  task :delete, [:tag] do
+  task :delete, [:tag] do |t,args|
     sh "git tag -d #{args.tag}"
   end
   
