@@ -139,7 +139,7 @@ namespace "tag" do
   
   desc "Compare tag with HEAD"
   task :compare, [:v] do |t, args|
-    sh "git log --format='- %s. ' #{args.v}..HEAD"
+    sh "git log --reverse --format='- %s. ' #{args.v}..HEAD"
   end
   
 end
