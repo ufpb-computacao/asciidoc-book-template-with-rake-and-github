@@ -1,6 +1,15 @@
 == DocBook Character Entity Reference
 
-There symbols where extrated from http://www.oasis-open.org/docbook/documentation/reference/html/refchar.html.
+These symbols where extrated from http://www.oasis-open.org/docbook/documentation/reference/html/refchar.html.
+
+This document was made to show how to write symbols with asciidoc.
+It was also made to compile with dblatex. For example, since the 
+`&real;` doesn't compile with dblatex it will be here 
+like this: `& real;`. But if you are going to use in html or fop, you
+can use `&real;`.
+
+You can see the code for 
+https://raw.githubusercontent.com/edusantana/novo-livro/master/livro/capitulos/symbols.adoc[this document here].
 
 === Added Math Symbols: Arrow Relations Character Entities (%isoamsa;)
 
@@ -250,7 +259,91 @@ Added Math Symbols: Relations Character Entities
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-| | |
+| &ape; | &#x224A; | Almost equal or equal to
+| &asymp; | &#x224D; | Equivalent to
+| & bcong; | & #x224C; | All equal to
+| &bepsi; |  | such that
+| &bowtie; | &#x22C8; | Bowtie
+| &bsim; | &#x223D; | Reversed tilde
+| &bsime; | &#x22CD; | Reversed tilde equals
+| &bump; | &#x224E; | Geometrically equivalent to
+| &bumpe; | &#x224F; | Difference between
+| &cire; | &#x2257; | Ring equal to
+| &colone; | &#x2254; | Colon equals
+| &cuepr; | &#x22DE; | Equal to or precedes
+| &cuesc; | &#x22DF; | Equal to or succeeds
+| &cupre; | &#x227C; | Precedes or equal to
+| &dashv; | &#x22A3; | Left tack
+| &ecir; | &#x2256; | Ring in equal to
+| &ecolon; | &#x2255; | Equals colon
+| &eDot; | &#x2251; | Geometrically equal to
+| &esdot; | &#x2250; | Approaches the limit
+| &efDot; | &#x2252; | Approximately equal to or the image of
+| &egs; | &#x22DD; | Equal to or greater-than
+| &els; | &#x22DC; | Equal to or less-than
+| &erDot; | &#x2253; | Image of or approximately equal to
+| &fork; | &#x22D4; | Pitchfork
+| &frown; | &#x2322; | Frown
+| & gap; | & #x2273; | Greater-than or equivalent to
+| &gsdot; | &#x22D7; | Greater-than with dot
+| &gE; | &#x2267; | Greater-than over equal to
+| &gel; | &#x22DB; | Greater-than equal to or less-than
+| &gEl; | &#x22DB; | Greater-than equal to or less-than
+| &ges; |  | gt-or-equal, slanted
+| & Gg; | & #x22D9; | Very much greater-than
+| &gl; | &#x2277; | Greater-than or less-than
+| & gsim; | & #x2273; | Greater-than or equivalent to
+| &Gt; | &#x226B; | Much greater-than
+| & lap; | & #x2272; | Less-than or equivalent to
+| &ldot; | &#x22D6; | Less-than with dot
+| &lE; | &#x2266; | Less-than over equal to
+| &lEg; | &#x22DA; | Less-than equal to or greater-than
+| &leg; | &#x22DA; | Less-than equal to or greater-than
+| &les; |  | less-than-or-eq, slant
+| &lg; | &#x2276; | Less-than or greater-than
+| & Ll; | & #x22D8; | Very much less-than
+| & lsim; | & #x2272; | Less-than or equivalent to
+| & Lt; | & #x226A; | Much less-than
+| &ltrie; | &#x22B4; | Normal subgroup of or equal to
+| &mid; | &#x2223; | Divides
+| & models; | & #x22A7; | Models
+| &pr; | &#x227A; | Precedes
+| &prap; | &#x227E; | Precedes or equivalent to
+| &pre; |  | precedes, equals
+| &prsim; | &#x227E; | Precedes or equivalent to
+| &rtrie; | &#x22B5; | Contains as normal subgroup or equal to
+| &samalg; | &#x2210; | N-ary coproduct
+| &sc; | &#x227B; | Succeeds
+| &scap; | &#x227F; | Succeeds or equivalent to
+| &sccue; | &#x227D; | Succeeds or equal to
+| &sce; | &#x227D; | Succeeds or equal to
+| &scsim; | &#x227F; | Succeeds or equivalent to
+| &sfrown; |  | small down curve
+| &smid; |  |  
+| &smile; | &#x2323; | Smile
+| &spar; |  | short parallel
+| &sqsub; | &#x228F; | Square image of
+| &sqsube; | &#x2291; | Square image of or equal to
+| &sqsup; | &#x2290; | Square original of
+| &sqsupe; | &#x2292; | Square original of or equal to
+| &ssmile; |  | small up curve
+| &Sub; | &#x22D0; | Double subset
+| &subE; | &#x2286; | Subset of or equal to
+| &Sup; | &#x22D1; | Double superset
+| &supE; | &#x2287; | Superset of or equal to
+| &thkap; |  | thick approximate
+| &thksim; |  | thick similar
+| &trie; | &#x225C; | Delta equal to
+| &twixt; | &#x226C; | Between
+| &vdash; | &#x22A2; | Right tack
+| &Vdash; | &#x22A9; | Forces
+| & vDash; | & #x22A8; | True
+| &veebar; | &#x22BB; | Xor
+| &vltri; | &#x22B2; | Normal subgroup of
+| &vprop; | &#x221D; | Proportional to
+| &vrtri; | &#x22B3; | Contains as normal subgroup
+| &Vvdash; | &#x22AA; | Triple vertical bar right turnstile
+
 |====
 
 
