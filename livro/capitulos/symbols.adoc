@@ -553,7 +553,49 @@ Alternative Greek Symbols Character Entities
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-| | |
+| &b.alpha; | &#x03B1; | Greek small letter alpha
+| &b.beta; | &#x03B2; | Greek small letter beta
+| &b.gamma; | &#x03B3; | Greek small letter gamma
+| &b.Gamma; | &#x393; | Greek capital letter GAMMA
+| &b.gammad; | &#x03DC; | Greek letter digamma
+| &b.delta; | &#x03B4; | Greek small letter delta
+| &b.Delta; | &#x394; | Greek capital letter DELTA
+| &b.epsi; | &#x03B5; | Greek small letter epsilon
+| & b.epsiv; | & #x025B; | Latin small letter open e
+| &b.epsis; | &#x03B5; | Greek small letter epsilon
+| &b.zeta; | &#x03B6; | Greek small letter zeta
+| &b.eta; | &#x03B7; | Greek small letter eta
+| & b.thetas; | & #x03B8; | Greek small letter theta
+| & b.Theta; | & #x398; | Greek capital letter THETA
+| & b.thetav; | & #x03D1; | Greek theta symbol
+| &b.iota; | &#x03B9; | Greek small letter iota
+| &b.kappa; | &#x03BA; | Greek small letter kappa
+| &b.kappav; | &#x03F0; | Greek kappa symbol
+| &b.lambda; | &#x03BB; | Greek small letter lamda
+| &b.Lambda; | &#x039B; | Greek capital letter LAMDA
+| &b.mu; | &#x03BC; | Greek small letter mu
+| &b.nu; | &#x03BD; | Greek small letter nu
+| &b.xi; | &#x03BE; | Greek small letter xi
+| &b.Xi; | &#x039E; | Greek capital letter XI
+| &b.pi; | &#x03C0; | Greek small letter pi
+| &b.Pi; | &#x03A0; | Greek capital letter PI
+| &b.piv; | &#x03D6; | Greek omega symbol
+| &b.rho; | &#x03C1; | Greek small letter rho
+| &b.rhov; | &#x03F1; | Greek rho symbol
+| &b.sigma; | &#x03C3; | Greek small letter sigma
+| &b.Sigma; | &#x03A3; | Greek capital letter SIGMA
+| &b.sigmav; | &#x03C2; | Greek small letter final sigma
+| &b.tau; | &#x03C4; | Greek small letter tau
+| &b.upsi; | &#x03C5; | Greek small letter upsilon
+| &b.Upsi; | &#x03D2; | Greek upsilon with hook symbol
+| &b.phis; | &#x03C6; | Greek small letter phi
+| &b.Phi; | &#x03A6; | Greek capital letter PHI
+| &b.phiv; | &#x03D5; | Greek phi symbol
+| &b.chi; | &#x03C7; | Greek small letter chi
+| &b.psi; | &#x03C8; | Greek small letter psi
+| &b.Psi; | &#x03A8; | Greek capital letter PSI
+| &b.omega; | &#x03C9; | Greek small letter omega
+| &b.Omega; | &#x03A9; | Greek capital letter OMEGA
 |====
 
 
@@ -563,7 +605,69 @@ ISO Latin 1 Character Entities
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-| | |
+| &aacute; |   | Latin small letter a with acute
+| &Aacute; | &#x00C1; | Latin capital letter A with acute
+| &acirc; |   | Latin small letter a with circumflex
+| &Acirc; | &#x00C2; | Latin capital letter A with circumflex
+| &agrave; |   | Latin small letter a with grave
+| &Agrave; | &#x00C0; | Latin capital letter A with grave
+| &aring; |   | Latin small letter a with ring above
+| &Aring; | &#x00C5; | Latin capital letter A with ring above
+| &atilde; |   | Latin small letter a with tilde
+| &Atilde; | &#x00C3; | Latin capital letter A with tilde
+| &auml; |   | Latin small letter a with diaeresis
+| &Auml; | &#x00C4; | Latin capital letter A with diaeresis
+| &aelig; |   | Latin small letter ae
+| &AElig; | &#x00C6; | Latin capital letter AE
+| &ccedil; |   | Latin small letter c with cedilla
+| &Ccedil; | &#x00C7; | Latin capital letter C with cedilla
+| &eth; | &#x00F0; | Latin small letter eth
+| &ETH; | &#x00D0; | Latin capital letter ETH
+| &eacute; |   | Latin small letter e with acute
+| &Eacute; | &#x00C9; | Latin capital letter E with acute
+| &ecirc; | &#x00EA; | Latin small letter e with circumflex
+| &Ecirc; | &#x00CA; | Latin capital letter E with circumflex
+| &egrave; |   | Latin small letter e with grave
+| &Egrave; | &#x00C8; | Latin capital letter E with grave
+| &euml; | &#x00EB; | Latin small letter e with diaeresis
+| &Euml; | &#x00CB; | Latin capital letter E with diaeresis
+| &iacute; | &#x00ED; | Latin small letter i with acute
+| &Iacute; | &#x00CD; | Latin capital letter I with acute
+| &icirc; | &#x00EE; | Latin small letter i with circumflex
+| &Icirc; | &#x00CE; | Latin capital letter I with circumflex
+| &igrave; | &#x00EC; | Latin small letter i with grave
+| &Igrave; | &#x00CC; | Latin capital letter I with grave
+| &iuml; | &#x00EF; | Latin small letter i with diaeresis
+| &Iuml; | &#x00CF; | Latin capital letter I with diaeresis
+| &ntilde; | &#x00F1; | Latin small letter n with tilde
+| &Ntilde; | &#x00D1; | Latin capital letter N with tilde
+| &oacute; | &#x00F3; | Latin small letter o with acute
+| &Oacute; | &#x00D3; | Latin capital letter O with acute
+| &ocirc; | &#x00F4; | Latin small letter o with circumflex
+| &Ocirc; | &#x00D4; | Latin capital letter O with circumflex
+| &ograve; | &#x00F2; | Latin small letter o with grave
+| &Ograve; | &#x00D2; | Latin capital letter O with grave
+| &oslash; | &#x00F8; | Latin small letter o with stroke
+| &Oslash; | &#x00D8; | Latin capital letter O with stroke
+| &otilde; | &#x00F5; | Latin small letter o with tilde
+| &Otilde; | &#x00D5; | Latin capital letter O with tilde
+| &ouml; | &#x00F6; | Latin small letter o with diaeresis
+| &Ouml; | &#x00D6; | Latin capital letter O with diaeresis
+| &szlig; | &#x00DF; | Latin small letter sharp s
+| &thorn; | &#x00FE; | Latin small letter thorn
+| &THORN; | &#x00DE; | Latin capital letter THORN
+| &uacute; | &#x00FA; | Latin small letter u with acute
+| &Uacute; | &#x00DA; | Latin capital letter U with acute
+| &ucirc; | &#x00FB; | Latin small letter u with circumflex
+| &Ucirc; | &#x00DB; | Latin capital letter U with circumflex
+| &ugrave; | &#x00F9; | Latin small letter u with grave
+| &Ugrave; | &#x00D9; | Latin capital letter U with grave
+| &uuml; | &#x00FC; | Latin small letter u with diaeresis
+| &Uuml; | &#x00DC; | Latin capital letter U with diaeresis
+| &yacute; | &#x00FD; | Latin small letter y with acute
+| &Yacute; | &#x00DD; | Latin capital letter Y with acute
+| &yuml; | &#x00FF; | Latin small letter y with diaeresis
+
 |====
 
 
