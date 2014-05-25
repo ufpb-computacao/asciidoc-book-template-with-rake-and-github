@@ -1,0 +1,386 @@
+== DocBook Character Entity Reference
+
+There symbols where extrated from http://www.oasis-open.org/docbook/documentation/reference/html/refchar.html.
+
+=== Added Math Symbols: Arrow Relations Character Entities (%isoamsa;)
+
+http://www.oasis-open.org/docbook/documentation/reference/html/iso-amsb.html[Added Math Symbols: Arrow Relations Character Entities]
+
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+|	& amalg;	|		|	amalgamation or coproduct
+|	& Barwed;	|	&#x22BC;	|	Nand
+|	&barwed;	|	&#x22BC;	|	Nand
+|	&Cap;	|	&#x22D2;	|	Double intersection
+|	&Cup;	|	&#x22D3;	|	Double union
+|	&cuvee;	|	&#x22CE;	|	Curly logical or
+|	&cuwed;	|	&#x22CF;	|	Curly logical and
+|	&diam;	|	&#x22C4;	|	Diamond operator
+|	&divonx;	|	&#x22C7;	|	Division times
+|	&intcal;	|	&#x22BA;	|	Intercalate
+|	&lthree;	|	&#x22CB;	|	Left semidirect product
+|	&ltimes;	|	&#x22C9;	|	Left normal factor semidirect product
+|	&minusb;	|	&#x229F;	|	Squared minus
+|	&oast;	|	&#x229B;	|	Circled asterisk operator
+|	&ocir;	|	&#x229A;	|	Circled ring operator
+|	&odash;	|	&#x229D;	|	Circled dash
+|	&odot;	|	&#x2299;	|	Circled dot operator
+|	&ominus;	|	&#x2296;	|	Circled minus
+|	&oplus;	|	&#x2295;	|	Circled plus
+|	&osol;	|	&#x2298;	|	Circled division slash
+
+|	&otimes;	|	&#x2297;	|	Circled times
+|	&plusb;	|	&#x229E;	|	Squared plus
+|	&plusdo;	|	&#x2214;	|	Dot plus
+|	&rthree;	|	&#x22CC;	|	Right semidirect product
+|	&rtimes;	|	&#x22CA;	|	Right normal factor semidirect product
+|	&sdot;	|	&#x22C5;	|	Dot operator
+|	&sdotb;	|	&#x22A1;	|	Squared dot operator
+|	&setmn;	|	&#x2216;	|	Set minus
+|	&sqcap;	|	&#x2293;	|	Square cap
+|	&sqcup;	|	&#x2294;	|	Square cup
+
+|	& ssetmn;	|		|	sm reverse solidus
+|	&sstarf;	|	&#x22C6;	|	Star operator
+|	&timesb;	|	&#x22A0;	|	Squared times
+|	&top;	|	&#x22A4;	|	Down tack
+|	&uplus;	|	&#x228E;	|	Multiset union
+|	&wreath;	|	&#x2240;	|	Wreath product
+|	&xcirc;	|	&#x25EF;	|	Large circle
+|	&xdtri;	|	&#x25BD;	|	White down-pointing triangle
+|	&xutri;	|	&#x25B3;	|	White up-pointing triangle
+|	&coprod;	|	&#x2210;	|	N-ary coproduct
+
+|	&prod;	|	&#x220F;	|	N-ary product
+|	&sum;	|	&#x2211;	|	N-ary summation
+
+|====
+
+
+=== Added Math Symbols: Binary Operators Character Entities (%isoamsb;)
+
+http://www.oasis-open.org/docbook/documentation/reference/html/iso-amsa.html[Added Math Symbols: Binary Operators Character Entities]
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+
+| &cularr; | &#x21B6; | Anticlockwise top semicircle arrow
+| &curarr; | &#x21B7; | Clockwise top semicircle arrow
+| &dArr; | &#x21D3; | Downwards double arrow
+| &darr2; | &#x21CA; | Downwards paired arrows
+| &dharl; | &#x21C3; | Downwards harpoon with barb leftwards
+| &dharr; | &#x21C2; | Downwards harpoon with barb rightwards
+| &lAarr; | &#x21DA; | Leftwards triple arrow
+| &Larr; | &#x219E; | Leftwards two headed arrow
+| &larr2; | &#x21C7; | Leftwards paired arrows
+| &larrhk; | &#x21A9; | Leftwards arrow with hook
+| &larrlp; | &#x21AB; | Leftwards arrow with loop
+| &larrtl; | &#x21A2; | Leftwards arrow with tail
+| &lhard; | &#x21BD; | Leftwards harpoon with barb downwards
+| &lharu; | &#x21BC; | Leftwards harpoon with barb upwards
+| &hArr; | &#x21D4; | Left right double arrow
+| &harr; | &#x2194; | Left right arrow
+| &lrarr2; | &#x21C6; | Leftwards arrow over rightwards arrow
+| &rlarr2; | &#x21C4; | Rightwards arrow over leftwards arrow
+| &harrw; | &#x21AD; | Left right wave arrow
+| &rlhar2; | &#x21CC; | Rightwards harpoon over leftwards harpoon
+| &lrhar2; | &#x21CB; | Leftwards harpoon over rightwards harpoon
+| &lsh; | &#x21B0; | Upwards arrow with tip leftwards
+| &map; | &#x21A6; | Rightwards arrow from bar
+| &mumap; | &#x22B8; | Multimap
+| &nearr; | &#x2197; | North east arrow
+| &nlArr; | &#x21CD; | Leftwards double arrow with stroke
+| &nlarr; | &#x219A; | Leftwards arrow with stroke
+| &nhArr; | &#x21CE; | Left right double arrow with stroke
+| &nharr; | &#x21AE; | Left right arrow with stroke
+| &nrarr; | &#x219B; | Rightwards arrow with stroke
+| &nrArr; | &#x21CF; | Rightwards double arrow with stroke
+| &nwarr; | &#x2196; | North west arrow
+| &olarr; | &#x21BA; | Anticlockwise open circle arrow
+| &orarr; | &#x21BB; | Clockwise open circle arrow
+| &rAarr; | &#x21DB; | Rightwards triple arrow
+| &Rarr; | &#x21A0; | Rightwards two headed arrow
+| &rarr2; | &#x21C9; | Rightwards paired arrows
+| &rarrhk; | &#x21AA; | Rightwards arrow with hook
+| &rarrlp; | &#x21AC; | Rightwards arrow with loop
+| &rarrtl; | &#x21A3; | Rightwards arrow with tail
+| & rarrw; | &#x21DD; | Rightwards squiggle arrow
+| &rhard; | &#x21C1; | Rightwards harpoon with barb downwards
+| &rharu; | &#x21C0; | Rightwards harpoon with barb upwards
+| &rsh; | &#x21B1; | Upwards arrow with tip rightwards
+| &drarr; | &#x2198; | South east arrow
+| &dlarr; | &#x2199; | South west arrow
+| &uArr; | &#x21D1; | Upwards double arrow
+| &uarr2; | &#x21C8; | Upwards paired arrows
+| &vArr; | &#x21D5; | Up down double arrow
+| &varr; | &#x2195; | Up down arrow
+| &uharl; | &#x21BF; | Upwards harpoon with barb leftwards
+| &uharr; | &#x21BE; | Upwards harpoon with barb rightwards
+| & xlArr; |  | long l dbl arrow 
+| & xhArr; |  | long l&r dbl arr
+| & xharr; |  | long l&r arr 
+| & xrArr; |  | long rt dbl arr 
+
+
+|====
+
+=== Added Math Symbols: Delimiters Character Entities (%isoamsc;)
+
+http://www.oasis-open.org/docbook/documentation/reference/html/iso-amsc.html[Added Math Symbols: Delimiters Character Entities]
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| &rceil; | &#x2309; | Right ceiling
+| &rfloor; | &#x230B; | Right floor
+| & rpargt; | | right paren, gt
+| &urcorn; | &#x231D; | Top right corner
+| &drcorn; | &#x231F; | Bottom right corner
+| &lceil; | &#x2308; | Left ceiling
+| &lfloor; | &#x230A; | Left floor
+| & lpargt; |  | left parenthesis, gt
+| &ulcorn; | &#x231C; | Top left corner
+| &dlcorn; | &#x231E; | Bottom left corner
+|====
+
+=== Added Math Symbols: Negated Relations Character Entities (%isoamsn;)
+
+http://www.oasis-open.org/docbook/documentation/reference/html/iso-amsn.html[Added Math Symbols: Negated Relations Character Entities]
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| &gnap; |  | greater, not approximate
+| &gne; | &#x2269; | Greater-than but not equal to
+| &gnE; | &#x2269; | Greater-than but not equal to
+| &gnsim; | &#x22E7; | Greater-than but not equivalent to
+| &gvnE; |  | gt, vert, not dbl eq
+| &lnap; |  | less, not approximate
+| &lnE; | &#x2268; | Less-than but not equal to
+| &lne; | &#x2268; | Less-than but not equal to
+| &lnsim; | &#x22E6; | Less-than but not equivalent to
+| &lvnE; |  | less, vert, not dbl eq
+| &nap; | &#x2249; | Not almost equal to
+| &ncong; | &#x2247; | Neither approximately nor actually equal to
+| &nequiv; | &#x2262; | Not identical to
+| &ngE; | &#x2271; | Neither greater-than nor equal to
+| &nge; |  | not greater-than-or-equal
+| &nges; | &#x2271; | Neither greater-than nor equal to
+| &ngt; | &#x226F; | Not greater-than
+| &nle; |  | not less-than-or-equal
+| &nlE; | &#x2270; | Neither less-than nor equal to
+| &nles; | &#x2270; | Neither less-than nor equal to
+| &nlt; | &#x226E; | Not less-than
+| &nltri; | &#x22EA; | Not normal subgroup of
+| &nltrie; | &#x22EC; | Not normal subgroup of or equal to
+| &nmid; | &#x2224; | Does not divide
+| &npar; | &#x2226; | Not parallel to
+| &npr; | &#x2280; | Does not precede
+| &npre; |  | not precedes, equals
+| &nrtri; | &#x22EB; | Does not contain as normal subgroup of
+| &nrtrie; | &#x22ED; | Does not contain as normal subgroup or equal
+| &nsc; | &#x2281; | Does not succeed
+| &nsce; |  | not succeeds, equals
+| &nsim; | &#x2241; | Not tilde
+| &nsime; | &#x2244; | Not asymptotically equal to
+| &nsmid; |  | nshortmid
+| &nspar; |  | not short par
+| &nsub; | &#x2284; | Not a subset of
+| &nsube; | &#x2288; | Neither a subset of nor equal to
+| &nsubE; | &#x2288; | Neither a subset of nor equal to
+| &nsup; | &#x2285; | Not a superset of
+| &nsupE; | &#x2289; | Neither a superset of nor equal to
+| &nsupe; | &#x2289; | Neither a superset of nor equal to
+| &nvdash; | &#x22AC; | Does not prove
+| &nvDash; | &#x22AD; | Not true
+| &nVDash; | &#x22AF; | Negated double vertical bar double right turnstile
+| &nVdash; | &#x22AE; | Does not force
+| & prnap; | & #x22E8; | Precedes but not equivalent to
+| &prnE; |  | precedes, not dbl eq
+| & prnsim; | & #x22E8; | Precedes but not equivalent to
+| &scnap; | &#x22E9; | Succeed but not equivalent to
+| &scnE; | | succeeds, not dbl eq
+| &scnsim; | &#x22E9; | Succeed but not equivalent to
+| &subne; | &#x228A; | Subset of or not equal to
+| &subnE; | &#x228A; | Subset of or not equal to
+| &supne; | &#x228B; | Superset of or not equal to
+| &supnE; | &#x228B; | Superset of or not equal to
+| &vsubnE; |  | subset not dbl eq, var
+| &vsubne; |  | subset, not eq, var
+| &vsupne; |  | superset, not eq, var
+| &vsupnE; |  | super not dbl eq, var
+
+|====
+
+=== Added Math Symbols: Ordinary Character Entities (%isoamso;)
+
+http://www.oasis-open.org/docbook/documentation/reference/html/iso-amso.html[Added Math Symbols: Ordinary Character Entities]
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| &ang; | &#x2220; | Angle
+| &angmsd; | &#x2221; | Measured angle
+| &beth; | &#x2136; | Bet symbol
+| &bprime; | &#x2035; | Reversed prime
+| &comp; | &#x2201; | Complement
+| &daleth; | &#x2138; | Dalet symbol
+| &ell; | &#x2113; | Script small l
+| &empty; | | emptyset /varnothing =small o, slash
+| &gimel; | &#x2137; | Gimel symbol
+| &image; | &#x2111; | Fraktur letter capital i
+| &inodot; | &#x131; | Latin small letter dotless i
+| & jnodot; | | jmath - small j, no dot
+| &nexist; | &#x2204; | There does not exist
+| &oS; | &#x24C8; | Circled latin capital letter S
+| &planck; | &#x127; | Latin small letter h with stroke
+| &real; | &#x211C; | Fraktur letter capital r
+| &sbsol; |  | sbs - short reverse solidus
+| &vprime; | &#x2032; | Prime
+| &weierp; | &#x2118; | Script capital p
+
+|====
+
+=== Added Math Symbols: Relations Character Entities (%isoamsr;)
+Added Math Symbols: Relations Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Box and Line Drawing Character Entities (%isobox;)
+Box and Line Drawing Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Russian Cyrillic Character Entities (%isocyr1;)
+Russian Cyrillic Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Non-Russian Cyrillic Character Entities (%isocyr2;)
+Non-Russian Cyrillic Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Diacritical Marks Character Entities (%isodia;)
+Diacritical Marks Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Greek Letters Character Entities (%isogrk1;)
+Greek Letters Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Monotoniko Greek Character Entities (%isogrk2;)
+Monotoniko Greek Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Greek Symbols Character Entities (%isogrk3;)
+Greek Symbols Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Alternative Greek Symbols Character Entities (%isogrk4;)
+Alternative Greek Symbols Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== ISO Latin 1 Character Entities (%isolat1;)
+ISO Latin 1 Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Added Latin 2 Character Entities (%isolat2;)
+Added Latin 2 Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Numeric and Special Graphic Character Entities (%isonum;)
+Numeric and Special Graphic Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== Publishing Character Entities (%isopub;)
+Publishing Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
+=== General Technical Character Entities (%isotech;)
+General Technical Character Entities
+
+[width="100%",cols="1^,1^,4",frame="topbot", options="header"]
+|====
+| Entity | Unicode | ISO Description
+| | |
+|====
+
+
