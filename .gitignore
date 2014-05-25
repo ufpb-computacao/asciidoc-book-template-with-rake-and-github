@@ -18,3 +18,4 @@ livro/capitulos/*.asc~
 /log.txt
 releases
 
+/livro/wip.html

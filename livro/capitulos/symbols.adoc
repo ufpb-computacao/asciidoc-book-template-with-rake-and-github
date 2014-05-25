@@ -10,51 +10,51 @@ http://www.oasis-open.org/docbook/documentation/reference/html/iso-amsb.html[Add
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-|	& amalg;	|		|	amalgamation or coproduct
-|	& Barwed;	|	&#x22BC;	|	Nand
-|	&barwed;	|	&#x22BC;	|	Nand
-|	&Cap;	|	&#x22D2;	|	Double intersection
-|	&Cup;	|	&#x22D3;	|	Double union
-|	&cuvee;	|	&#x22CE;	|	Curly logical or
-|	&cuwed;	|	&#x22CF;	|	Curly logical and
-|	&diam;	|	&#x22C4;	|	Diamond operator
-|	&divonx;	|	&#x22C7;	|	Division times
-|	&intcal;	|	&#x22BA;	|	Intercalate
-|	&lthree;	|	&#x22CB;	|	Left semidirect product
-|	&ltimes;	|	&#x22C9;	|	Left normal factor semidirect product
-|	&minusb;	|	&#x229F;	|	Squared minus
-|	&oast;	|	&#x229B;	|	Circled asterisk operator
-|	&ocir;	|	&#x229A;	|	Circled ring operator
-|	&odash;	|	&#x229D;	|	Circled dash
-|	&odot;	|	&#x2299;	|	Circled dot operator
-|	&ominus;	|	&#x2296;	|	Circled minus
-|	&oplus;	|	&#x2295;	|	Circled plus
-|	&osol;	|	&#x2298;	|	Circled division slash
+| & amalg; |  | amalgamation or coproduct
+| & Barwed; | &#x22BC; | Nand
+| &barwed; | &#x22BC; | Nand
+| &Cap; | &#x22D2; | Double intersection
+| &Cup; | &#x22D3; | Double union
+| &cuvee; | &#x22CE; | Curly logical or
+| &cuwed; | &#x22CF; | Curly logical and
+| &diam; | &#x22C4; | Diamond operator
+| &divonx; | &#x22C7; | Division times
+| &intcal; | &#x22BA; | Intercalate
+| &lthree; | &#x22CB; | Left semidirect product
+| &ltimes; | &#x22C9; | Left normal factor semidirect product
+| &minusb; | &#x229F; | Squared minus
+| &oast; | &#x229B; | Circled asterisk operator
+| &ocir; | &#x229A; | Circled ring operator
+| &odash; | &#x229D; | Circled dash
+| &odot; | &#x2299; | Circled dot operator
+| &ominus; | &#x2296; | Circled minus
+| &oplus; | &#x2295; | Circled plus
+| &osol; | &#x2298; | Circled division slash
 
-|	&otimes;	|	&#x2297;	|	Circled times
-|	&plusb;	|	&#x229E;	|	Squared plus
-|	&plusdo;	|	&#x2214;	|	Dot plus
-|	&rthree;	|	&#x22CC;	|	Right semidirect product
-|	&rtimes;	|	&#x22CA;	|	Right normal factor semidirect product
-|	&sdot;	|	&#x22C5;	|	Dot operator
-|	&sdotb;	|	&#x22A1;	|	Squared dot operator
-|	&setmn;	|	&#x2216;	|	Set minus
-|	&sqcap;	|	&#x2293;	|	Square cap
-|	&sqcup;	|	&#x2294;	|	Square cup
+| &otimes; | &#x2297; | Circled times
+| &plusb; | &#x229E; | Squared plus
+| &plusdo; | &#x2214; | Dot plus
+| &rthree; | &#x22CC; | Right semidirect product
+| &rtimes; | &#x22CA; | Right normal factor semidirect product
+| &sdot; | &#x22C5; | Dot operator
+| &sdotb; | &#x22A1; | Squared dot operator
+| &setmn; | &#x2216; | Set minus
+| &sqcap; | &#x2293; | Square cap
+| &sqcup; | &#x2294; | Square cup
 
-|	& ssetmn;	|		|	sm reverse solidus
-|	&sstarf;	|	&#x22C6;	|	Star operator
-|	&timesb;	|	&#x22A0;	|	Squared times
-|	&top;	|	&#x22A4;	|	Down tack
-|	&uplus;	|	&#x228E;	|	Multiset union
-|	&wreath;	|	&#x2240;	|	Wreath product
-|	&xcirc;	|	&#x25EF;	|	Large circle
-|	&xdtri;	|	&#x25BD;	|	White down-pointing triangle
-|	&xutri;	|	&#x25B3;	|	White up-pointing triangle
-|	&coprod;	|	&#x2210;	|	N-ary coproduct
+| & ssetmn; |  | sm reverse solidus
+| &sstarf; | &#x22C6; | Star operator
+| &timesb; | &#x22A0; | Squared times
+| &top; | &#x22A4; | Down tack
+| &uplus; | &#x228E; | Multiset union
+| &wreath; | &#x2240; | Wreath product
+| &xcirc; | &#x25EF; | Large circle
+| &xdtri; | &#x25BD; | White down-pointing triangle
+| &xutri; | &#x25B3; | White up-pointing triangle
+| &coprod; | &#x2210; | N-ary coproduct
 
-|	&prod;	|	&#x220F;	|	N-ary product
-|	&sum;	|	&#x2211;	|	N-ary summation
+| &prod; | &#x220F; | N-ary product
+| &sum; | &#x2211; | N-ary summation
 
 |====
 
