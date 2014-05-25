@@ -353,7 +353,47 @@ Box and Line Drawing Character Entities
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-| | |
+| &boxh; | &#x2500; | Box drawings light horizontal
+| &boxv; | &#x2502; | Box drawings light vertical
+| &boxur; | &#x2514; | Box drawings light up and right
+| &boxul; | &#x2518; | Box drawings light up and left
+| &boxdl; | &#x2510; | Box drawings light down and left
+| &boxdr; | &#x250C; | Box drawings light down and right
+| &boxvr; | &#x251C; | Box drawings light vertical and right
+| &boxhu; | &#x2534; | Box drawings light up and horizontal
+| &boxvl; | &#x2524; | Box drawings light vertical and left
+| &boxhd; | &#x252C; | Box drawings light down and horizontal
+| &boxvh; | &#x253C; | Box drawings light vertical and horizontal
+| &boxvR; | &#x255E; | Box drawings vertical single and right double
+| &boxhU; | &#x2568; | Box drawings up double and horizontal single
+| &boxvL; | &#x2561; | Box drawings vertical single and left double
+| &boxhD; | &#x2565; | Box drawings down double and horizontal single
+| &boxvH; | &#x256A; | Box drawings vertical single and horizontal double
+| &boxH; | &#x2550; | Box drawings double horizontal
+| &boxV; | &#x2551; | Box drawings double vertical
+| &boxUR; | &#x255A; | Box drawings double up and right
+| &boxUL; | &#x255D; | Box drawings double up and left
+| &boxDL; | &#x2557; | Box drawings double down and left
+| &boxDR; | &#x2554; | Box drawings double down and right
+| &boxVR; | &#x2560; | Box drawings double vertical and right
+| &boxHU; | &#x2569; | Box drawings double up and horizontal
+| &boxVL; | &#x2563; | Box drawings double vertical and left
+| &boxHD; | &#x2566; | Box drawings double down and horizontal
+| &boxVH; | &#x256C; | Box drawings double vertical and horizontal
+| &boxVr; | &#x255F; | Box drawings vertical double and right single
+| &boxHu; | &#x2567; | Box drawings up single and horizontal double
+| &boxVl; | &#x2562; | Box drawings vertical double and left single
+| &boxHd; | &#x2564; | Box drawings down single and horizontal double
+| &boxVh; | &#x256B; | Box drawings vertical double and horizontal single
+| &boxuR; | &#x2558; | Box drawings up single and right double
+| &boxUl; | &#x255C; | Box drawings up double and left single
+| &boxdL; | &#x2555; | Box drawings down single and left double
+| &boxDr; | &#x2553; | Box drawings down double and right single
+| &boxUr; | &#x2559; | Box drawings up double and right single
+| &boxuL; | &#x255B; | Box drawings up single and left double
+| &boxDl; | &#x2556; | Box drawings down double and left single
+| &boxdR; | &#x2552; | Box drawings down single and right double
+
 |====
 
 
@@ -403,7 +443,55 @@ Monotoniko Greek Character Entities
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-| | |
+| &agr; | &#x03B1; | Greek small letter alpha
+| &Agr; | &#x391; | Greek capital letter ALPHA
+| &bgr; | &#x03B2; | Greek small letter beta
+| &Bgr; | &#x392; | Greek capital letter BETA
+| &ggr; | &#x03B3; | Greek small letter gamma
+| &Ggr; | &#x393; | Greek capital letter GAMMA
+| &dgr; | &#x03B4; | Greek small letter delta
+| &Dgr; | &#x394; | Greek capital letter DELTA
+| & egr; | & #x03B5; | Greek small letter epsilon
+| & Egr; | & #x395; | Greek capital letter EPSILON
+| &zgr; | &#x03B6; | Greek small letter zeta
+| &Zgr; | &#x396; | Greek capital letter ZETA
+| &eegr; | &#x03B7; | Greek small letter eta
+| &EEgr; | &#x397; | Greek capital letter ETA
+| & thgr; | & #x03B8; | Greek small letter theta
+| &THgr; | &#x398; | Greek capital letter THETA
+| &igr; | &#x03B9; | Greek small letter iota
+| &Igr; | &#x399; | Greek capital letter IOTA
+| &kgr; | &#x03BA; | Greek small letter kappa
+| &Kgr; | &#x039A; | Greek capital letter KAPPA
+| &lgr; | &#x03BB; | Greek small letter lamda
+| &Lgr; | &#x039B; | Greek capital letter LAMDA
+| &mgr; | &#x03BC; | Greek small letter mu
+| &Mgr; | &#x039C; | Greek capital letter MU
+| &ngr; | &#x03BD; | Greek small letter nu
+| &Ngr; | &#x039D; | Greek capital letter NU
+| &xgr; | &#x03BE; | Greek small letter xi
+| &Xgr; | &#x039E; | Greek capital letter XI
+| &ogr; | &#x03BF; | Greek small letter omicron
+| &Ogr; | &#x039F; | Greek capital letter OMICRON
+| &pgr; | &#x03C0; | Greek small letter pi
+| &Pgr; | &#x03A0; | Greek capital letter PI
+| &rgr; | &#x03C1; | Greek small letter rho
+| &Rgr; | &#x03A1; | Greek capital letter RHO
+| &sgr; | &#x03C3; | Greek small letter sigma
+| &Sgr; | &#x03A3; | Greek capital letter SIGMA
+| &sfgr; | &#x03C2; | Greek small letter final sigma
+| &tgr; | &#x03C4; | Greek small letter tau
+| & Tgr; | & #x03A4; | Greek capital letter TAU
+| &ugr; | &#x03C5; | Greek small letter upsilon
+| &Ugr; | &#x03A5; | Greek capital letter UPSILON
+| &phgr; | &#x03C6; | Greek small letter phi
+| &PHgr; | &#x03A6; | Greek capital letter PHI
+| &khgr; | &#x03C7; | Greek small letter chi
+| &KHgr; | &#x03A7; | Greek capital letter CHI
+| &psgr; | &#x03C8; | Greek small letter psi
+| &PSgr; | &#x03A8; | Greek capital letter PSI
+| &ohgr; | &#x03C9; | Greek small letter omega
+| &OHgr; | &#x03A9; | Greek capital letter OMEGA
 |====
 
 
@@ -413,7 +501,49 @@ Greek Symbols Character Entities
 [width="100%",cols="1^,1^,4",frame="topbot", options="header"]
 |====
 | Entity | Unicode | ISO Description
-| | |
+| &alpha; | &#x03B1; | Greek small letter alpha
+| &beta; | &#x03B2; | Greek small letter beta
+| &gamma; | &#x03B3; | Greek small letter gamma
+| &Gamma; | &#x393; | Greek capital letter GAMMA
+| &gammad; | &#x03DC; | Greek letter digamma
+| &delta; | &#x03B4; | Greek small letter delta
+| &Delta; | &#x394; | Greek capital letter DELTA
+| &epsi; | &#x03B5; | Greek small letter epsilon
+| & epsiv; | & #x025B; | Latin small letter open e
+| & epsis; | & #x03B5; | Greek small letter epsilon
+| &zeta; | &#x03B6; | Greek small letter zeta
+| &eta; | &#x03B7; | Greek small letter eta
+| & thetas; | & #x03B8; | Greek small letter theta
+| &Theta; | &#x398; | Greek capital letter THETA
+| & thetav; | & #x03D1; | Greek theta symbol
+| &iota; | &#x03B9; | Greek small letter iota
+| &kappa; | &#x03BA; | Greek small letter kappa
+| &kappav; | &#x03F0; | Greek kappa symbol
+| &lambda; | &#x03BB; | Greek small letter lamda
+| &Lambda; | &#x039B; | Greek capital letter LAMDA
+| &mu; | &#x03BC; | Greek small letter mu
+| &nu; | &#x03BD; | Greek small letter nu
+| &xi; | &#x03BE; | Greek small letter xi
+| &Xi; | &#x039E; | Greek capital letter XI
+| &pi; | &#x03C0; | Greek small letter pi
+| &piv; | &#x03D6; | Greek omega symbol
+| &Pi; | &#x03A0; | Greek capital letter PI
+| &rho; | &#x03C1; | Greek small letter rho
+| &rhov; | &#x03F1; | Greek rho symbol
+| &sigma; | &#x03C3; | Greek small letter sigma
+| &Sigma; | &#x03A3; | Greek capital letter SIGMA
+| &sigmav; | &#x03C2; | Greek small letter final sigma
+| &tau; | &#x03C4; | Greek small letter tau
+| &upsi; | &#x03C5; | Greek small letter upsilon
+| &Upsi; | &#x03D2; | Greek upsilon with hook symbol
+| &phis; | &#x03C6; | Greek small letter phi
+| &Phi; | &#x03A6; | Greek capital letter PHI
+| &phiv; | &#x03D5; | Greek phi symbol
+| &chi; | &#x03C7; | Greek small letter chi
+| &psi; | &#x03C8; | Greek small letter psi
+| &Psi; | &#x03A8; | Greek capital letter PSI
+| &omega; | &#x03C9; | Greek small letter omega
+| &Omega; | &#x03A9; | Greek capital letter OMEGA
 |====
 
 
