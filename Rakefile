@@ -1,5 +1,6 @@
 require 'net/http'
 require 'rake/clean'
+require 'find'
 
 task :default => [:wip]
 
@@ -48,12 +49,12 @@ namespace "wip" do
       system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
   end
 
-  desc "open docbook xml file"
+  desc "Open docbook xml from wip build"
   task "xml" do
     system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.xml"
   end
 
-  desc "Edit source"
+  desc "Edit wip source"
   task "edit" do
     system "gvim #{WIP_ADOC}"
   end
@@ -66,7 +67,9 @@ namespace "wip" do
 end
 
 
-desc "Sync, build and open book file"
+
+
+desc "Archive, build and open book file"
 task :book => [:clean, :archive, "book:build", "book:open"]
 
 namespace "book" do
@@ -76,41 +79,41 @@ namespace "book" do
     system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE}"
   end
 
-  desc "open pdf book"
+  desc "Open pdf book"
   task "open" do
     system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_TARGET}"
   end
 
-  desc "open docbook xml file"
+  desc "Open docbook xml from book build"
   task "xml" do
     system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.xml"
   end
 
-  desc "Edit source"
+  desc "Edit book source"
   task "edit" do
     system "gvim #{@BOOK_SOURCE}"
   end
   
   desc "Release new edition book"
-  task :release, [:edition] do |t, args|
+  task :release, [:tag] do |t, args|
     #PROJECT = sh "`git config --get remote.origin.url | cut -f 2 -d / | cut -f 1 -d .`"
     puts "PROJECT_NAME='#{PROJECT_NAME}' LIVRO_URL='#{LIVRO_URL}'"
     mkdir_p "~/releases/#{PROJECT_NAME}"
     cd "~/releases/#{PROJECT_NAME}"
     `wget #{LIVRO_URL}`
     puts "Salvando arquivo em #{Dir.getwd}"
-    mv "livro.pdf", "#{PROJECT_NAME}-#{args.edition}.pdf"
+    mv "livro.pdf", "#{PROJECT_NAME}-#{args.tag}.pdf"
     #Dir.mkdir(File.join(Dir.home, ".foo"), 0700)
   end
   
 end
 
-desc "archive files from git"
+desc "extract files from repository (git archive)"
 task :archive => :clean do
   system "git archive --format=tar --prefix=#{@RELEASE_DIR}/ HEAD | (tar xf -) "
 end
 
-desc "local sync of the files to #{@RELEASE_DIR}"
+desc "local sync of the files"
 task :sync => @RELEASE_DIR do |t|
   system "rsync -r --delete #{@BOOK_SOURCE_DIR}/ #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}"
 end
@@ -137,9 +140,9 @@ namespace "tag" do
     sh "git push origin --tags"
   end
   
-  desc "Compare tag with HEAD"
-  task :compare, [:v] do |t, args|
-    sh "git log --reverse --format='- %s. ' #{args.v}..HEAD"
+  desc "Compare HEAD with tag, generate release notes with git log"
+  task :compare, [:tag] do |t, args|
+    sh "git log --reverse --format='- %s. ' #{args.tag}..HEAD"
   end
   
 end
@@ -153,12 +156,13 @@ end
 
 namespace "config" do
 
-  desc "Configure open command. xdg-open for ubuntu and open for osx"
+#  desc "Configure open command. xdg-open for ubuntu and open for osx"
   task :pdfviewer, [:app] do |t,args|
     sh "git config --global producao.pdfviewer #{args.app}"
   end
 
 end
+
 
 desc "Download new Rakefile"
 task :uprake do
