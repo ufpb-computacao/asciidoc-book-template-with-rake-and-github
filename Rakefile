@@ -130,6 +130,7 @@ namespace "tag" do
   
   desc "Aplly a tag to the project. It will be used as the edition."
   task :apply, [:tag] do |t, args|
+    sh "git status"
     sh "git tag -a #{args.tag} -m 'Gerando versão #{args.tag}'"
   end
   
@@ -148,8 +149,8 @@ namespace "tag" do
     last_tag = `git describe --abbrev=0`.strip
     args.with_defaults(:tag => last_tag)
     tag = args.tag
-    edition = ENV.fetch('edition', "#{tag}?")
-    authors = ENV.fetch('authors', "?")
+    edition = ENV.fetch('edition', "#{tag} FIXME!")
+    authors = ENV.fetch('authors', " FIXME! ")
     date = Date.today.strftime "%d/%m/%Y"
     history, s = Open3.capture2("git log --reverse --format='- %s. ' #{args.tag}..HEAD")
     revision = "\n
