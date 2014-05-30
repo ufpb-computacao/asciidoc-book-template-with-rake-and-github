@@ -30,6 +30,7 @@ desc "Sync, build and open wip file"
 task :wip => [WIP_ADOC, "sync", "wip:build", "wip:open"]
 task :edit => ["wip:edit"]
 
+
 namespace "wip" do
 
   desc "Create new wip file from book source"
@@ -141,9 +142,11 @@ namespace "tag" do
   task "push" do
     sh "git push origin --tags"
   end
-  
+
   desc "Generate revision history, compare HEAD and tag."
   task :revision, [:tag] do |t, args|
+    last_tag = `git describe --abbrev=0`.strip
+    args.with_defaults(:tag => last_tag)
     tag = args.tag
     edition = ENV.fetch('edition', "#{tag}?")
     authors = ENV.fetch('authors', "?")
