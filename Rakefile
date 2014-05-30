@@ -1,6 +1,8 @@
 require 'net/http'
 require 'rake/clean'
 require 'find'
+require 'date'
+require 'open3'
 
 task :default => [:wip]
 
@@ -140,9 +142,23 @@ namespace "tag" do
     sh "git push origin --tags"
   end
   
-  desc "Compare HEAD with tag, generate release notes with git log"
-  task :compare, [:tag] do |t, args|
-    sh "git log --reverse --format='- %s. ' #{args.tag}..HEAD"
+  desc "Generate revision history, compare HEAD and tag."
+  task :revision, [:tag] do |t, args|
+    tag = args.tag
+    edition = ENV.fetch('edition', "#{tag}?")
+    authors = ENV.fetch('authors', "?")
+    date = Date.today.strftime "%d/%m/%Y"
+    history, s = Open3.capture2("git log --reverse --format='- %s. ' #{args.tag}..HEAD")
+    revision = "
+    <revision>
+      <revnumber>#{edition}</revnumber>
+      <date>#{date}</date>
+      <authorinitials>#{authors}</authorinitials>
+      <revremark>
+#{history}      </revremark>
+    </revision>".strip
+    puts revision
+
   end
   
 end
