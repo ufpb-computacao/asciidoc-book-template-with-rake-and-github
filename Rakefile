@@ -144,7 +144,7 @@ namespace "tag" do
   end
 
   desc "Generate revision history, compare HEAD and tag."
-  task :revision, [:tag] do |t, args|
+  task :revision, [:tag] => [:docinfo] do |t, args|
     last_tag = `git describe --abbrev=0`.strip
     args.with_defaults(:tag => last_tag)
     tag = args.tag
@@ -152,16 +152,21 @@ namespace "tag" do
     authors = ENV.fetch('authors', "?")
     date = Date.today.strftime "%d/%m/%Y"
     history, s = Open3.capture2("git log --reverse --format='- %s. ' #{args.tag}..HEAD")
-    revision = "
+    revision = "\n
     <revision>
       <revnumber>#{edition}</revnumber>
       <date>#{date}</date>
       <authorinitials>#{authors}</authorinitials>
       <revremark>
 #{history}      </revremark>
-    </revision>".strip
+    </revision>\n\n"
     puts revision
-
+  end
+  
+  desc "Open docinfo for edition (before apply tag)."
+  task :docinfo do
+    puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
+    system "xdg-open #{@BOOK_SOURCE_DIR}/docinfo.xml"
   end
   
 end
@@ -175,7 +180,7 @@ end
 
 namespace "config" do
 
-#  desc "Configure open command. xdg-open for ubuntu and open for osx"
+#  desc "Configure open command. `xdg-open` for ubuntu and open for `osx`"
   task :pdfviewer, [:app] do |t,args|
     sh "git config --global producao.pdfviewer #{args.app}"
   end
