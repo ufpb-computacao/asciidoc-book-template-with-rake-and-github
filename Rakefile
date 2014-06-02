@@ -111,12 +111,12 @@ namespace "book" do
   
 end
 
-desc "extract files from repository (git archive)"
+desc "Extract files from repository (git archive)"
 task :archive => :clean do
   system "git archive --format=tar --prefix=#{@RELEASE_DIR}/ HEAD | (tar xf -) "
 end
 
-desc "local sync of the files"
+desc "Local sync of the files"
 task :sync => @RELEASE_DIR do |t|
   system "rsync -r --delete #{@BOOK_SOURCE_DIR}/ #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}"
 end
@@ -128,7 +128,7 @@ namespace "tag" do
     sh "git tag --list"
   end
   
-  desc "Aplly a tag to the project. It will be used as the edition."
+  desc "Aplly a tag to the project. The tag can be used as the edition."
   task :apply, [:tag] do |t, args|
     sh "git status"
     sh "git tag -a #{args.tag} -m 'Gerando versão #{args.tag}'"
@@ -144,8 +144,9 @@ namespace "tag" do
     sh "git push origin --tags"
   end
 
-  desc "Generate revision history, compare HEAD and tag."
-  task :revision, [:tag] => [:docinfo] do |t, args|
+  desc "Generate revision history, compare HEAD and tag. 
+  The tag is optional, if not specified it will use the last tag applied."
+  task :revision, [:tag] do |t, args|
     last_tag = `git describe --abbrev=0`.strip
     args.with_defaults(:tag => last_tag)
     tag = args.tag
@@ -164,7 +165,8 @@ namespace "tag" do
     puts revision
   end
   
-  desc "Open docinfo for edition (before apply tag)."
+  desc "Open docinfo for edition. 
+  Before apply tag you should edit docinfo and add the revision history."
   task :docinfo do
     puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
     system "xdg-open #{@BOOK_SOURCE_DIR}/docinfo.xml"
