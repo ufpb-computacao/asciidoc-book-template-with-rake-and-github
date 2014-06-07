@@ -196,3 +196,30 @@ task :uprake do
   `wget --output-document=Rakefile https://raw.githubusercontent.com/edusantana/novo-livro/master/Rakefile`
 end
 
+
+desc "Build images from R files"
+task :r
+task :sync => :r
+
+FileList['livro/images/**/*.R'].each do |source|
+  rpdf = source.ext('pdf')
+  file rpdf => source do |t|
+    rm_rf "Rplots.pdf"
+    sh "R --no-save < #{t.source}"
+    mv "Rplots.pdf","#{t.name}"
+  end
+  task :r => rpdf
+end
+
+desc "Build images from dot files"
+task :dot
+task :sync => :dot
+
+FileList['livro/images/**/*.dot'].each do |source|
+  epsfile = source.ext('eps')
+  file epsfile => source do |t|
+    sh "dot -Teps -o #{t.name} #{t.source}"
+  end
+  task :dot => epsfile
+end
+
