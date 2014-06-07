@@ -1,8 +1,9 @@
 == Livro de disciplina
 
-Este repositório contém um livro de uma disciplina.
+Este repositório contém um livro de uma disciplina. 
+Você pode baixar https://github.com/edusantana/FIXME/releases/latest[o livro em PDF aqui]. 
 
-Para conhecer o seu processo de produção consulte 
+Para conhecer o processo de produção consulte 
 https://github.com/edusantana/producao-computacao-ead-ufpb.
 
 
