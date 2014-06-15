@@ -1,0 +1,24 @@
+/*  Este arquivo pode ser utilizado para geração de gráficos.
+http://www.graphviz.org/Gallery.php
+Para compilar execute:
+  dot -O -T png
+*/
+
+digraph G {
+  rankdir="LR"
+  node[shape=box, style=filled]
+  //labelloc=top;
+  //labeljust=right;
+  //label="Estilo enfrentamento"
+
+  antes[label="Antes do nascimento"];
+  infancia[label="Infância"];
+  adolescencia[label="Adolescência"];
+  adulta[label="Fase Adulta"];
+  velhice[label="Velhice"];
+
+  antes->infancia->adolescencia->adulta->velhice;
+
+}
+
+

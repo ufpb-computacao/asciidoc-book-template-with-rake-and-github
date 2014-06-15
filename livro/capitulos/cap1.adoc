@@ -1,4 +1,4 @@
-== Novo capítulo
+== Novo capítulo 1
 
 :cap: cap1
 :online: {gitrepo}/blob/master/livro/capitulos/code/{cap}
@@ -51,6 +51,11 @@ capítulo.
 . Texto da atividade.
 
 . Texto da atividade.
+
+=== Incluindo imagens R
+
+.Como incluir imagens R do pdf ou eps
+image::{img}/linha.pdf[scaledwidth="40%"]
 
 
 CAUTION: *Sempre termine os arquivos com uma linha em branco*, caso 

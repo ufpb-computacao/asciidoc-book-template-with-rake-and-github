@@ -246,7 +246,7 @@ http://www.oasis-open.org/docbook/documentation/reference/html/iso-amso.html[Add
 | &nexist; | &#x2204; | There does not exist
 | &oS; | &#x24C8; | Circled latin capital letter S
 | &planck; | &#x127; | Latin small letter h with stroke
-| &real; | &#x211C; | Fraktur letter capital r
+| &real; | &#x211C; | Fraktur letter capital r - &#x211D; - &#x211B; &#8475;
 | &sbsol; |  | sbs - short reverse solidus
 | &vprime; | &#x2032; | Prime
 | &weierp; | &#x2118; | Script capital p
