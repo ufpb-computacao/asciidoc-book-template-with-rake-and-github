@@ -223,3 +223,23 @@ FileList['livro/images/**/*.dot'].each do |source|
   task :dot => epsfile
 end
 
+
+namespace "github" do
+  desc "List issues from github milestone"
+  task :issues, [:milestone] do |t,args|
+    puts "Acessing: #{GITHUB_REPO} milestone=#{args.milestone}"
+    require 'octokit'
+    client = Octokit::Client.new
+    milestone = nil
+    milestones = client.list_milestones(GITHUB_REPO)
+    milestones.each do |m|
+      if m[:title] == args.milestone then
+        milestone = m
+      end
+    end
+    issues = client.list_issues(GITHUB_REPO, state:'Closed', milestone:milestone[:number], direction:'asc')
+    issues.each do |i|
+      puts "- #{i[:title]} (##{i[:number]})."
+    end
+  end
+end
