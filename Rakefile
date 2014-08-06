@@ -46,7 +46,7 @@ namespace "wip" do
   file RELEASE_WIP_PDF do
     system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
-  
+
   desc "Open wip pdf"
   task :open => RELEASE_WIP_PDF do |t|
       puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
@@ -97,7 +97,7 @@ namespace "book" do
   task "edit" do
     system "gvim #{@BOOK_SOURCE}"
   end
-  
+
   desc "Release new edition book"
   task :release, [:tag] do |t, args|
     #PROJECT = sh "`git config --get remote.origin.url | cut -f 2 -d / | cut -f 1 -d .`"
@@ -109,7 +109,7 @@ namespace "book" do
     mv "livro.pdf", "#{PROJECT_NAME}-#{args.tag}.pdf"
     #Dir.mkdir(File.join(Dir.home, ".foo"), 0700)
   end
-  
+
 end
 
 desc "Extract files from repository (git archive)"
@@ -128,24 +128,24 @@ namespace "tag" do
   task :list do
     sh "git tag --list"
   end
-  
+
   desc "Aplly a tag to the project. The tag can be used as the edition."
   task :apply, [:tag] do |t, args|
     sh "git status"
     sh "git tag -a #{args.tag} -m 'Gerando versão #{args.tag}'"
   end
-  
+
   desc "Delete a tag applied."
   task :delete, [:tag] do |t,args|
     sh "git tag -d #{args.tag}"
   end
-  
+
   desc "Push tags"
   task "push" do
     sh "git push origin --tags"
   end
 
-  desc "Generate revision history, compare HEAD and tag. 
+  desc "Generate revision history, compare HEAD and tag.
   The tag is optional, if not specified it will use the last tag applied."
   task :revision, [:tag] do |t, args|
     last_tag = `git describe --abbrev=0`.strip
@@ -165,14 +165,14 @@ namespace "tag" do
     </revision>\n\n"
     puts revision
   end
-  
-  desc "Open docinfo for edition. 
+
+  desc "Open docinfo for edition.
   Before apply tag you should edit docinfo and add the revision history."
   task :docinfo do
     puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
     system "xdg-open #{@BOOK_SOURCE_DIR}/docinfo.xml"
   end
-  
+
 end
 
 
@@ -224,7 +224,6 @@ FileList['livro/images/**/*.dot'].each do |source|
   task :dot => epsfile
 end
 
-
 namespace "github" do
   desc "List issues from github milestone"
   task :issues, [:milestone] do |t,args|
@@ -235,7 +234,7 @@ namespace "github" do
     milestone = nil
     milestones = client.list_milestones(GITHUB_REPO)
     opcoes = milestones.map {|m| m[:title]}
-    
+
     if (args.milestone) then
       milestones.each do |m|
         if m[:title] == args.milestone then
@@ -246,10 +245,10 @@ namespace "github" do
       milestone = milestones[-1]
     end
     puts "Milestone: #{milestone[:title]}"
-    
+
     issues = client.list_issues(GITHUB_REPO, state:'Closed', milestone:milestone[:number], direction:'asc')
     issues.each do |i|
-      puts "- #{i[:title]} (##{i[:number]})."
+      puts "- #{i[:title]} (##{i[:number]});"
     end
   end
 end
