@@ -232,10 +232,11 @@ namespace "github" do
 #    require 'highline/import'
     client = Octokit::Client.new
     milestone = nil
-    milestones = client.list_milestones(GITHUB_REPO)
+    milestones = client.list_milestones(GITHUB_REPO, state: "all")
     opcoes = milestones.map {|m| m[:title]}
 
     if (args.milestone) then
+      #puts "milestones: #{milestones}"
       milestones.each do |m|
         if m[:title] == args.milestone then
           milestone = m
