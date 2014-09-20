@@ -251,7 +251,7 @@ namespace "github" do
     puts "Para adicionar ao docinfo.xml:\n"
     issues = client.list_issues(GITHUB_REPO, state:'Closed', milestone:milestone[:number], direction:'asc')
     issues.each do |i|
-      puts "<ulink url=\"https://github.com/#{GITHUB_REPO}/issues/#{i[:number]}\">- #{i[:title]};</ulink>"
+      puts "<ulink url=\"{gitrepo}/issues/#{i[:number]}\">#{i[:title]};</ulink>"
     end
     puts ""
     puts "Para adicionar ao release notes no github:"
