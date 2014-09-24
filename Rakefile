@@ -225,14 +225,15 @@ FileList['livro/images/**/*.dot'].each do |source|
 end
 
 namespace "github" do
-  desc "List issues from github milestone"
-  task :issues, [:milestone] do |t,args|
+  desc "List issues from github milestone. Default milestone state is closed, can also be all."
+  task :issues, [:milestone, :mstate] do |t,args|
+    args.with_defaults(:mstate => "closed")
     puts "Acessing: #{GITHUB_REPO} milestone=#{args.milestone}"
     require 'octokit'
 #    require 'highline/import'
     client = Octokit::Client.new
     milestone = nil
-    milestones = client.list_milestones(GITHUB_REPO, state: "all")
+    milestones = client.list_milestones(GITHUB_REPO, state: args.mstate, sort: 'created', direction: 'desc')
     opcoes = milestones.map {|m| m[:title]}
 
     if (args.milestone) then
@@ -243,13 +244,23 @@ namespace "github" do
         end
       end
     else
-      milestone = milestones[-1]
+      milestone = milestones[0]
     end
-    puts "Milestone: #{milestone[:title]}"
+    puts "Milestone: #{milestone[:title]} #{milestone[:state].upcase}"
 
     puts ""
     puts "Para adicionar ao docinfo.xml:\n"
-    issues = client.list_issues(GITHUB_REPO, state:'Closed', milestone:milestone[:number], direction:'asc')
+    issues = client.list_issues(GITHUB_REPO, milestone:milestone[:number], sort: 'created', direction: 'asc', state:'all')
+    open_issues = []
+    issues.each do |i|
+      if (i[:state] == 'open') then
+        open_issues << i[:number]
+      end
+    end
+    if (open_issues.size > 0) then
+      puts "Open issues: #{open_issues}"
+      puts ""
+    end
     issues.each do |i|
       puts "<ulink url=\"{gitrepo}/issues/#{i[:number]}\">#{i[:title]};</ulink>"
     end
