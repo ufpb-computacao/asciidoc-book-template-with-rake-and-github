@@ -1,9 +1,31 @@
 == Livro de disciplina
 
-Este repositório contém um livro de uma disciplina. 
-Você pode baixar https://github.com/edusantana/FIXME/releases/latest[o livro em PDF aqui]. 
+Este repositório contém um livro de uma disciplina.
+Você pode baixar https://github.com/edusantana/FIXME/releases/latest[o livro em PDF aqui].
 
-Para conhecer o processo de produção consulte 
+Para conhecer o processo de produção consulte
 https://github.com/edusantana/producao-computacao-ead-ufpb.
 
 
+All configuration will be stored using git configuration
+
+
+adocbragit
+
+== Requirements
+
+
+ $ sudo gem install git
+
+# global configurations
+git config --global adocbragit.bookdir        livro
+git config --global adocbragit.bookfile       livro.asc
+git config --global adocbragit.wipfile        wip.adoc
+git config --global adocbragit.releasesdir    releases
+git config --global adocbragit.bin.a2x        "~/ambiente/asciidoc/a2x.py"
+git config --global adocbragit.editioncommand        "git describe"
+git config --global adocbragit.bin.pdfviewer xdg-open
+git config --global adocbragit.bin.sejda /home/santana/ambiente/sejda/bin/sejda-console
+
+# Per repository
+# git config adocbragit.gitrepo                 https://github.com/edusantana/asciidoc-book-template-with-rake-and-github

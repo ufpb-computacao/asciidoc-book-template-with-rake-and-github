@@ -6,43 +6,85 @@ require 'open3'
 
 task :default => [:wip]
 
-SOURCE_FILES = FileList['livro/livro.asc', 'livro/capitulos/*']
-@RELEASE_DIR = 'releases/current'
-@BOOK_SOURCE_DIR = 'livro'
-@BOOK_SOURCE = 'livro/livro.asc'
-@BOOK_TARGET = 'livro/livro.pdf'
-@A2X_BIN = '~/ambiente/asciidoc/a2x.py'
-WIP_ADOC = "#{@BOOK_SOURCE_DIR}/wip.adoc"
-RELEASE_BOOK_SOURCE = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.asc"
-RELEASE_BOOK  = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.pdf"
-RELEASE_WIP_ADOC =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
-RELEASE_WIP_PDF  =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
+# load configurations from git config
+# adocbragit
+BOOK_SOURCE_DIR = `git config --get adocbragit.book_source_dir`.strip
+BOOK_DIR = `git config --get adocbragit.bookdir`.strip
+BOOK_FILE = `git config --get adocbragit.bookfile`.strip
+WIP_FILE = `git config --get adocbragit.wipfile`.strip
+RELEASES_DIR = `git config --get adocbragit.releasesdir`.strip
+EDITION_CMD = `git config --get adocbragit.editioncommand`.strip
+BIN_A2X = `git config --get adocbragit.bin.a2x`.strip
+BIN_PDF_VIEWER = `git config --get adocbragit.bin.pdfviewer`.strip
+BIN_SEJDA = `git config --get adocbragit.bin.sejda`.strip
+
+# load from repository config
+CURRENT_DIR = `git rev-parse --show-toplevel`.strip
+
+# relative paths
+BOOK_RELATIVE_PATH = "#{BOOK_DIR}/#{BOOK_FILE}"
+WIP_RELATIVE_PATH =  "#{BOOK_DIR}/#{WIP_FILE}"
+# release path
+WIP_RELEASE_DIR  = "#{RELEASES_DIR}/wip"
+WIP_RELEASE_SOURCE = "#{WIP_RELEASE_DIR}/#{WIP_RELATIVE_PATH}"
+BOOK_RELEASE_DIR = "#{RELEASES_DIR}/current"
+BOOK_RELEASE_SOURCE = "#{WIP_RELEASE_DIR}/#{BOOK_RELATIVE_PATH}"
+
+RELEASE_DIR = 'releases/current'
+BOOK_SOURCE = 'livro/livro.asc'
+BOOK_TARGET = 'livro/livro.pdf'
+WIP_ADOC = "#{BOOK_SOURCE_DIR}/wip.adoc"
+RELEASE_BOOK_SOURCE = "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/livro.asc"
+RELEASE_BOOK  = "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/livro.pdf"
+RELEASE_WIP_ADOC =  "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.adoc"
+RELEASE_WIP_PDF  =  "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.pdf"
+
+A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=`git describe` -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian' -a livro-pdf"
+
+# Info extracted from remote.origin.url:
+# $ git config remote.origin.url
+# git@github.com:edusantana/asciidoc-book-template-with-rake-and-github.git
+PROJECT_USER = `git config remote.origin.url`.strip.gsub('git@github.com:','').gsub('.git','').split('/')[0]
+PROJECT_NAME = `git config remote.origin.url`.strip.gsub('git@github.com:','').gsub('.git','').split('/')[1]
+GITHUB_REPO =  "https://github.com/#{PROJECT_USER}/#{PROJECT_NAME}"
+
+
+A2X_BIN = '~/ambiente/asciidoc/a2x.py'
+WIP_ADOC = "#{BOOK_SOURCE_DIR}/wip.adoc"
+RELEASE_BOOK_SOURCE = "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/livro.asc"
+RELEASE_BOOK  = "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/livro.pdf"
+RELEASE_WIP_ADOC =  "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.adoc"
+RELEASE_WIP_PDF  =  "#{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.pdf"
 OPEN_PDF_CMD=`git config --get producao.pdfviewer`.strip
 A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=`git describe` -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian' -a livro-pdf"
-PROJECT_NAME = File.basename(Dir.getwd)
-LIVRO_URL = `git config --get livro.url`.strip
-GITHUB_REPO = `git config remote.origin.url`.strip.gsub('git@github.com:','').gsub('.git','')
+
 
 # release
 REPOSITORIO_PATH=`git rev-parse --show-toplevel`.strip
-#@RELEASE_DIR = ''
-@tag = ''
-@SEJDA_BIN = '/home/santana/ambiente/sejda/bin/sejda-console'
+#RELEASE_DIR = ''
+tagg = ''
+SEJDA_BIN = '/home/santana/ambiente/sejda/bin/sejda-console'
 
-directory @RELEASE_DIR
+directory RELEASES_DIR
+directory WIP_RELEASE_DIR
+directory BOOK_RELEASE_DIR
 
-CLEAN.include('releases')
 
 desc "Sync, build and open wip file"
 task :wip => [WIP_ADOC, "sync", "wip:build", "wip:open"]
 task :edit => ["wip:edit"]
 
+task :show do
+
+end
+
+directory "#{RELEASES_DIR}/wip"
 
 namespace "wip" do
 
   desc "Create new wip file from book source"
   task "new" do
-    cp "#{@BOOK_SOURCE}", "#{@BOOK_SOURCE_DIR}/wip.adoc"
+    cp BOOK_RELATIVE_PATH, WIP_RELATIVE_PATH
   end
 
   file WIP_ADOC do
@@ -50,18 +92,18 @@ namespace "wip" do
   end
 
   file RELEASE_WIP_PDF do
-    system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
+    system "#{A2X_BIN} #{A2X_COMMAND} #{WIP_RELEASE_SOURCE}"
   end
 
   desc "Open wip pdf"
   task :open => RELEASE_WIP_PDF do |t|
-      puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
-      system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
+      puts "#{OPEN_PDF_CMD} #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.pdf"
+      system "#{OPEN_PDF_CMD} #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.pdf"
   end
 
   desc "Open docbook xml from wip build"
   task "xml" do
-    system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.xml"
+    system "#{OPEN_PDF_CMD} #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.xml"
   end
 
   desc "Edit wip source"
@@ -69,9 +111,9 @@ namespace "wip" do
     system "gvim #{WIP_ADOC}"
   end
 
-  desc "build book from #{@RELEASE_DIR}"
+  desc "build book from #{RELEASE_DIR}"
   task :build => [WIP_ADOC, :sync] do
-    system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
+    system "#{A2X_BIN} #{A2X_COMMAND} #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.adoc"
   end
 
 end
@@ -86,22 +128,22 @@ namespace "book" do
 
   desc "Build book"
   task :build => ['sync'] do
-    system "#{@A2X_BIN} #{A2X_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE}"
+    system "#{A2X_BIN} #{A2X_COMMAND} #{RELEASE_DIR}/#{BOOK_SOURCE}"
   end
 
   desc "Open pdf book"
   task "open" do
-    system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_TARGET}"
+    system "#{OPEN_PDF_CMD} #{RELEASE_DIR}/#{BOOK_TARGET}"
   end
 
   desc "Open docbook xml from book build"
   task "xml" do
-    system "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.xml"
+    system "#{OPEN_PDF_CMD} #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/livro.xml"
   end
 
   desc "Edit book source"
   task "edit" do
-    system "gvim #{@BOOK_SOURCE}"
+    system "gvim #{BOOK_SOURCE}"
   end
 
   desc "Release new edition book"
@@ -120,12 +162,12 @@ end
 
 desc "Extract files from repository (git archive)"
 task :archive => :clean do
-  system "git archive --format=tar --prefix=#{@RELEASE_DIR}/ HEAD | (tar xf -) "
+  system "git archive --format=tar --prefix=#{RELEASE_DIR}/ HEAD | (tar xf -) "
 end
 
 desc "Local sync of the files"
-task :sync => @RELEASE_DIR do |t|
-  system "rsync -r --delete #{@BOOK_SOURCE_DIR}/ #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}"
+task :sync => RELEASE_DIR do |t|
+  system "rsync -r --delete #{BOOK_SOURCE_DIR}/ #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}"
 end
 
 namespace "tag" do
@@ -175,8 +217,8 @@ namespace "tag" do
   desc "Open docinfo for edition.
   Before apply tag you should edit docinfo and add the revision history."
   task :docinfo do
-    puts "#{OPEN_PDF_CMD} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
-    system "xdg-open #{@BOOK_SOURCE_DIR}/docinfo.xml"
+    puts "#{OPEN_PDF_CMD} #{RELEASE_DIR}/#{BOOK_SOURCE_DIR}/wip.pdf"
+    system "xdg-open #{BOOK_SOURCE_DIR}/docinfo.xml"
   end
 
 end
@@ -200,7 +242,7 @@ end
 
 desc "Download new Rakefile"
 task :uprake do
-  `wget --output-document=Rakefile https://raw.githubusercontent.com/edusantana/asciidoc-book-template-with-rake-and-github/master/Rakefile`
+  `wget --output-document=Rakefile https://raw.githubusercontent.com/edusantana/novo-livro/master/Rakefile`
 end
 
 
@@ -291,10 +333,10 @@ namespace "release" do
   task :archive, [:tag] do |t, args|
     last_tag = `git describe --abbrev=0`.strip
     args.with_defaults(:tag => last_tag)
-    @tag = args.tag
-    @RELEASE_DIR = "releases/#{args.tag}"
+    tagg = args.tag
+    RELEASE_DIR = "releases/#{args.tag}"
     Dir.chdir(REPOSITORIO_PATH) do
-      system "git archive --format=tar --prefix=#{@RELEASE_DIR}/ #{@tag} | (tar xf -) "
+      system "git archive --format=tar --prefix=#{RELEASE_DIR}/ #{tagg} | (tar xf -) "
     end
   end
 
@@ -302,10 +344,10 @@ namespace "release" do
   task :build, [:tag] do |t, args|
     last_tag = `git describe --abbrev=0`.strip
     args.with_defaults(:tag => last_tag)
-    @tag = args.tag
-    @RELEASE_DIR = "releases/#{args.tag}"
+    tagg = args.tag
+    RELEASE_DIR = "releases/#{args.tag}"
     release_dir = "releases/#{args.tag}"
-    target_file = "releases/#{@PROJECT_NAME}-#{@tag}.pdf"
+    target_file = "releases/#{PROJECT_NAME}-#{tagg}.pdf"
     editora_file = "#{release_dir}/livro/editora/editora.pdf"
     livro_source = "#{release_dir}/livro/livro.asc"
     livro_pdf = "#{release_dir}/livro/livro.pdf"
@@ -313,14 +355,14 @@ namespace "release" do
     directory release_dir
     file livro_source => [release_dir]
     file livro_pdf => [livro_source] do
-      Dir.chdir(@RELEASE_DIR) do
-        @A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=#{@tag} -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian' -a livro-pdf"
-        system "#{@A2X_BIN} #{@A2X_COMMAND} livro/livro.asc"
+      Dir.chdir(RELEASE_DIR) do
+        A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=#{tagg} -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian' -a livro-pdf"
+        system "#{A2X_BIN} #{A2X_COMMAND} livro/livro.asc"
       end
     end
     file target_file => [livro_pdf] do
       if File.exist? editora_file then
-        system "#{@SEJDA_BIN} merge -f #{editora_file} #{livro_pdf} -o #{target_file}"
+        system "#{SEJDA_BIN} merge -f #{editora_file} #{livro_pdf} -o #{target_file}"
       else
         mv livro_pdf, target_file
       end
