@@ -200,7 +200,7 @@ end
 
 desc "Download new Rakefile"
 task :uprake do
-  `wget --output-document=Rakefile https://raw.githubusercontent.com/edusantana/novo-livro/master/Rakefile`
+  `wget --output-document=Rakefile https://raw.githubusercontent.com/edusantana/asciidoc-book-template-with-rake-and-github/master/Rakefile`
 end
 
 
