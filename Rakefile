@@ -25,7 +25,7 @@ GITHUB_REPO = `git config remote.origin.url`.strip.gsub('git@github.com:','').gs
 
 # release
 REPOSITORIO_PATH=`git rev-parse --show-toplevel`.strip
-@RELEASE_DIR = ''
+#@RELEASE_DIR = ''
 @tag = ''
 @SEJDA_BIN = '/home/santana/ambiente/sejda/bin/sejda-console'
 
