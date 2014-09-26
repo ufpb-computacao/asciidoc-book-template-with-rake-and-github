@@ -278,7 +278,7 @@ namespace "github" do
     puts ""
     puts "Para commits:"
     issues.each do |i|
-      puts "#{i[:title]} closes (##{i[:number]});"
+      puts "#{i[:title]} closes ##{i[:number]}"
     end
 
 
