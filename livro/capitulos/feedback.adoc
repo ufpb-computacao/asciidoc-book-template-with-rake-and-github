@@ -10,6 +10,7 @@ Para compreender melhor como feedbacks funcionam https://github.com/edusantana/g
 
 ////
 TIP Use this site to generate a new urlencoded message:
+CAUTION Remeber to change encoding to utf8
 http://www.url-encode-decode.com/urlencode
 ////
 
