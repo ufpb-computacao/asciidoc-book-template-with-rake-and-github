@@ -7,7 +7,8 @@ require 'open3'
 task :default => [:wip]
 
 SOURCE_FILES = FileList['livro/livro.asc', 'livro/capitulos/*']
-@RELEASE_DIR = 'releases/current'
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`.strip
+@RELEASE_DIR = "releases/#{CURRENT_BRANCH}"
 @BOOK_SOURCE_DIR = 'livro'
 @BOOK_SOURCE = 'livro/livro.asc'
 @BOOK_TARGET = 'livro/livro.pdf'
