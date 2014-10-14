@@ -1,9 +1,87 @@
-== Livro de disciplina
+== Asciidoc Book template with rake tasks and github
 
-Este repositório contém um livro de uma disciplina. 
-Você pode baixar https://github.com/edusantana/FIXME/releases/latest[o livro em PDF aqui]. 
+This is the book template used at Universidade Federal da Paraíba for a online course (Licenciatura em Computação a Distância).
 
-Para conhecer o processo de produção consulte 
-https://github.com/edusantana/producao-computacao-ead-ufpb.
+Quick info::
+* The main file is `livro/livro.asc`, where chapters (`livro/capitulos/*.adoc`) are included;
+* `Rakefile` has a lot ot tasks to help manage the book;
+* Tasks thinks that the book is hosted at github;
+* We use asciidoc and dblatex to build only pdf files
 
+=== Quick start
 
+* make sure your have https://help.github.com/articles/generating-ssh-keys/[ssh configured];
+* *DON'T* mark _Initialize this repository with a README_ when creating a project for your book on github;
+* replace `mybook` and `username` with the name of the repository you have created and your github username;
+
+....
+MYBOOK=mybook
+MYUSER=edusantana
+git clone git@github.com:edusantana/asciidoc-book-template-with-rake-and-github.git $MYBOOK
+cd $MYBOOK
+git remote set-url origin git@github.com:$MYUSER/$MYBOOK.git
+git rm LICENSE; git commit -m "Using asciidoc-book-template-with-rake-and-github"
+git push origin master
+....
+
+.Listing all tasks
+....
+rake -T
+....
+
+.Configurations
+....
+git config --global abragit.bin.pdfviewer xdg-open
+git config --global abragit.bin.editor gvim
+....
+
+....
+rake wip:new
+rake wip
+....
+
+== Where help is needed (contribution)
+
+Right now I'm the only one that uses this template. There are
+hard code configurations that I'm trying to put on `git config`.
+
+If you want to contribute, just try to use and
+create a pull request if any change is needed.
+
+=== Dependencies
+
+* asciidoc
+* dblatex
+* rake (and ruby)
+* http://www.sejda.org/[sejda] (for merging pdf and keeping bookmarks)
+* https://github.com/octokit/octokit.rb[octokit] (for listing github issues)
+
+==== Custom docbook template
+
+We use a custom template named `computacao`.
+
+TODO.
+
+=== Understanding why tasks are needed
+
+For building the book we have these needs:
+
+Working with uncommited changes::
+
+- Build only the chapter that I'm working on (uncommited changes)
+- Build the entire book (uncommited changes)
+
+Working with commited changes::
+
+- Build the entire book (from commits, before push)
+- Build the entire book from a tag to test
+
+To prepare the book for publish we have these needs::
+
+- Tag the source that will generate the book release
+- Generate release notes by reading closed issues from github milestone
+- Publish book (github releases)
+
+Other needs::
+- Images (dot, qrcode, R)
+- Update tasks (Rakefile) from this repository
