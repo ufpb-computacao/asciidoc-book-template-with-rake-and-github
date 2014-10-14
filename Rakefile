@@ -18,9 +18,8 @@ RELEASE_BOOK_SOURCE = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.asc"
 RELEASE_BOOK  = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.pdf"
 RELEASE_WIP_ADOC =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
 RELEASE_WIP_PDF  =  "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.pdf"
-ADOC_EDITOR =`git config --get abragit.bin.editor`.strip
-OPEN_PDF_CMD=`git config --get abragit.bin.pdfviewer`.strip
-FICHAS_DIR  =`git config --get abragit.fichasdir`.strip
+OPEN_PDF_CMD=`git config --get producao.pdfviewer`.strip
+FICHAS_DIR=`git config --get abragit.fichasdir`.strip
 A2X_COMMAND="-v -k -f pdf --icons -a docinfo1 -a edition=`git describe` -a lang=pt-BR -d book --dblatex-opts '-T computacao -P latex.babel.language=brazilian -P preface.tocdepth=1' -a livro-pdf"
 A2X_EPUB_COMMAND="-v -k -f epub --icons -a docinfo1 -a edition=`git describe` -a lang=pt-BR -d book "
 PROJECT_NAME = File.basename(Dir.getwd)
@@ -84,7 +83,7 @@ namespace "wip" do
 
   desc "Edit wip source"
   task "edit" do
-    system "#{ADOC_EDITOR} #{WIP_ADOC}"
+    system "gvim #{WIP_ADOC}"
   end
 
 
@@ -122,7 +121,7 @@ namespace "book" do
 
   desc "Edit book source"
   task "edit" do
-    system "#{ADOC_EDITOR} #{@BOOK_SOURCE}"
+    system "gvim #{@BOOK_SOURCE}"
   end
 
   desc "Release new edition book"
@@ -354,16 +353,3 @@ namespace "release" do
   end # build
 
 end
-
-namespace "project" do
-  desc "Create a new book project from github repository."
-  task :new, [gituser,project] do |t, args|
-    chdir ".." do
-      `git clone git@github.com:#{t.gituser}/#{t.project}.git`
-      chdir "#{t.project}" do
-        
-      end
-    end
-  end
-end
-

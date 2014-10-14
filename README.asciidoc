@@ -29,12 +29,13 @@ git push origin master
 rake -T
 ....
 
-.Configurations
+.Configurations before build
 ....
 git config --global abragit.bin.pdfviewer xdg-open
 git config --global abragit.bin.editor gvim
 ....
 
+.Creating wip file from livro.asc and building it
 ....
 rake wip:new
 rake wip
@@ -85,3 +86,191 @@ To prepare the book for publish we have these needs::
 Other needs::
 - Images (dot, qrcode, R)
 - Update tasks (Rakefile) from this repository
+
+=== Asciidoc build
+
+First of all, when we build the book we have this issues:
+
+- asciidoc genetares a few files (like images from filters, xml, etc);
+- if you are using a version control and forgot to add some file and
+build the book local, a commit can break the book build, since
+this file will not be available for build elsewhere;
+- if you use branches to write book features, it would be nice
+to compare branches;
+
+The solution to build the book would be:
+
+- we need to build the book in a different directory of book source (temp dir)
+- we need to have a way to build the book without commit (local sync)
+- we need to have a way to build the book from commited files (to check if we
+forgot to add some file).
+- we need to have a way to build the book from branches;
+
+=== Understading tasks
+
+To extract files from repository or copy local files for a temporary
+localtion for build I have these tasks:
+
+ rake archive            # extract files from repository (git archive)
+ rake sync               # local sync of the files
+
+For building the book I have two options. The most commom is to build
+the book with local files, without have to commit, doing a
+local sync before. The other one, is to build the book using only
+commited files (executing archive before build):
+
+ rake book               # Archive, build and open book file
+ rake wip                # Sync, build and open wip file
+
+NOTE: If you have used cucumber before you know `wip`, it means
+*work in progress*. The most commom task is to build the book localy.
+
+But very ofter we want to build just a piece of the book.
+Let's supose my main source file is `my-book/book.adoc`, this is
+the file where I include all chapters.
+
+The wip task won't use the main source file to build,
+it will make a copy in `my-book/wip.adoc` (if doesn't exists)
+and use it to build. The first time you run `rake wip` the book will
+have the same contains. But you can remove includes
+from `wip.adoc` and it will only build those chapters that you
+are working on. (work in progress)
+
+If I what to build the entire book again, or just include others
+chapters I just have to create the wip file again and edit changes:
+
+ rake wip:new            # Create new wip file from book source
+ rake wip:edit           # Edit wip source
+
+After the book have been build, I can open it:
+
+ rake book:open          # Open pdf book
+ rake wip:open           # Open wip pdf
+
+But there are times when the book doesn't build, and we have to
+inspect the docbook xml file generated at the building:
+
+ rake book:xml           # Open docbook xml from book build
+ rake wip:xml            # Open docbook xml from wip build
+
+To open the book for edition:
+
+ rake book:edit          # Edit book source
+ rake wip:edit           # Edit wip source
+
+And to mananage book versions I use git tags:
+
+ rake tag:apply[tag]     # Aplly a tag to the project
+ rake tag:delete[tag]    # Delete a tag applied
+ rake tag:list           # List project tags
+ rake tag:push           # Push tags
+
+But before applying a tag I have to compare the HEAD with a previous
+tag to generate the Revision History (and release notes). I use the
+commit titles with github issue numbers to generate them with:
+
+ rake tag:compare[tag]   # Compare HEAD with tag, generate release notes with git log
+
+With this comparation I update the docinfo.xml to generate the
+revision history, and then commit and apply tag.
+
+A Revision history:
+https://github.com/edusantana/linguagem-de-programacao-i-livro/blob/master/livro/docinfo.xml
+
+With a tag applied, it's time to generate the release. We have to
+extract the files from repository tag and build it. This is a special
+build, the book release will be renames using the tag name and copied
+to a release dir, something like `releases/my-book-v1.1.0.pdf`:
+
+ rake release:archive[tag]  # archive files from git tag
+ rake release:build[tag]    # build book release from tag
+
+To publish books, we use github releases. For that I have to
+push a tag of the project before upload release:
+
+ rake tag:push               # Push tags
+
+With the tag pushed to the repository I can edit the release
+in github site (I use the same text from release notes) and upload
+the book release.
+
+A Published release on github:
+https://github.com/edusantana/linguagem-de-programacao-i-livro/releases/tag/v0.5.1
+
+In post production, if users find a problem in the book, they can
+create an issue in github. We fix the bug, generate a new version
+of the book and say thank you to them.
+
+Issue created by a reader:
+https://github.com/edusantana/linguagem-de-programacao-i-livro/issues/69
+
+Since I manage a few books projects, I also need a way to keep
+all projects's Rakefile updated:
+
+ rake uprake             # Download new Rakefile
+
+This will download the Rakefile (with all these tasks) where I keep updated:
+https://github.com/edusantana/novo-livro/blob/master/Rakefile
+
+
+Features I wish:
+
+- Notify users if a new version of the book is available when user
+opens the pdf book (I think http://www.crossref.org has it, don't know).
+
+
+=== My sequence on a normal day
+
+....
+rake wip:edit
+Write chapters
+rake wip
+Write chapters
+rake wip
+git commit
+rake book
+Write chapters
+rake wip
+git commit
+rake book
+git rebase -i (edit commit messages to generate release notes from them later)
+git push
+....
+
+[[sec_tasks_list]]
+=== Tasks
+rake archive                   # Extract files from repository (git archive)
+rake book                      # Archive, build and open book file
+rake book:build                # Build book
+rake book:edit                 # Edit book source
+rake book:open                 # Open pdf book
+rake book:release[tag]         # Release new edition book
+rake book:xml                  # Open docbook xml from book build
+rake clean                     # Remove any temporary products
+rake clobber                   # Remove any generated file
+rake dot                       # Build images from dot files
+rake github:issues[milestone]  # List issues from github milestone
+rake original                  # Open orginal pdf to work
+rake qrcode                    # Build tables from qrcode specs
+rake r                         # Build images from R files
+rake release:archive[tag]      # Archive files from git tag
+rake release:build[tag]        # Build book release
+rake sync                      # Local sync of the files
+rake tag:apply[tag]            # Aplly a tag to the project
+rake tag:delete[tag]           # Delete a tag applied
+rake tag:docinfo               # Open docinfo for edition
+rake tag:list                  # List project tags
+rake tag:push                  # Push tags
+rake tag:revision[tag]         # Generate revision history, compare HEAD and tag
+rake uprake                    # Download new Rakefile
+rake wip                       # Sync, build and open wip file
+rake wip:build                 # build book from releases/master
+rake wip:edit                  # Edit wip source
+rake wip:epub                  # build wip epub book
+rake wip:ficha                 # Copia ficha técnica para um diretório configurado
+rake wip:new                   # Create new wip file from book source
+rake wip:open                  # Open wip pdf
+rake wip:xml                   # Open docbook xml from wip build
+
+
+
