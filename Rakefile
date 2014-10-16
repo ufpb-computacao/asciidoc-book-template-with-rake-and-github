@@ -158,6 +158,7 @@ namespace "tag" do
 
   desc "Push tags"
   task "push" do
+    sh "git push origin"
     sh "git push origin --tags"
   end
 
