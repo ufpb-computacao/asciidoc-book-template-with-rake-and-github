@@ -306,9 +306,7 @@ namespace "release" do
     args.with_defaults(:tag => last_tag)
     @tag = args.tag
     @RELEASE_DIR = "releases/#{args.tag}"
-    Dir.chdir(REPOSITORIO_PATH) do
-      system "git archive --format=tar --prefix=#{@RELEASE_DIR}/ #{@tag} | (tar xf -) "
-    end
+    system "git archive --format=tar --prefix=#{@RELEASE_DIR}/ #{@tag} | (tar xf -) "
   end
 
   desc "Build book release. If not tag is passed, the last tag applied will be used."
@@ -318,7 +316,7 @@ namespace "release" do
     @tag = args.tag
     @RELEASE_DIR = "releases/#{args.tag}"
     release_dir = "releases/#{args.tag}"
-    target_file = "releases/#{@PROJECT_NAME}-#{@tag}.pdf"
+    target_file = "releases/#{PROJECT_NAME}-#{@tag}.pdf"
     editora_file = "#{release_dir}/livro/editora/editora.pdf"
     livro_source = "#{release_dir}/livro/livro.asc"
     livro_pdf = "#{release_dir}/livro/livro.pdf"
