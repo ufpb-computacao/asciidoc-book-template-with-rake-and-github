@@ -239,6 +239,8 @@ git push
 
 [[sec_tasks_list]]
 === Tasks
+
+....
 rake archive                   # Extract files from repository (git archive)
 rake book                      # Archive, build and open book file
 rake book:build                # Build book
@@ -271,6 +273,5 @@ rake wip:ficha                 # Copia ficha técnica para um diretório configu
 rake wip:new                   # Create new wip file from book source
 rake wip:open                  # Open wip pdf
 rake wip:xml                   # Open docbook xml from wip build
-
-
+....
 
