@@ -57,7 +57,17 @@ namespace "wip" do
   desc "build book from #{@RELEASE_DIR}"
   task :build => [WIP_ADOC, :sync] do
     DRAFT_COMMAND = "--dblatex-opts '-P draft.mode=yes'"
-    system "#{@A2X_BIN} #{A2X_COMMAND} #{DRAFT_COMMAND} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
+    prefacio_code_att = ""
+    PREFACIO_CODE_DIR = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/capitulos/code/prefacio"
+    if Dir.exist?(PREFACIO_CODE_DIR) then
+      Dir.chdir(PREFACIO_CODE_DIR) do
+        prefacio_code_file = Dir.glob("*").first
+        if (prefacio_code_file) then
+          prefacio_code_att = "-a prefacio-code=#{prefacio_code_file}"
+        end
+      end
+    end
+    system "#{@A2X_BIN} #{A2X_COMMAND} #{DRAFT_COMMAND} #{prefacio_code_att} #{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/wip.adoc"
   end
 
   desc "Open wip pdf"
