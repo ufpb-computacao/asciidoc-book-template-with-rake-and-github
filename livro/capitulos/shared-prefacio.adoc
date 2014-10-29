@@ -96,12 +96,13 @@ vez de um arquivo _{prefacio-code}_, que se encontra dentro do diretório
 _livro/capitulos/code/{cap}_.  O diretório _{cap}_ indica o capítulo
 onde o código está relacionado.
 
+:srcfile: {prefacio-code}
 .Código fonte
-{gitrepo}/blob/{edition}/livro/capitulos/code/{cap}/{prefacio-code}[code/{cap}/{prefacio-code}]
+{gitrepo}/blob/{edition}/livro/capitulos/code/{cap}/{srcfile}[code/{cap}/{srcfile}]
 
-.Exemplo de código
+.{srcfile}
 ----
-include::code/{cap}/{prefacio-code}[]
+include::code/{cap}/{srcfile}[]
 ----
 
 [[sec_codigo_fonte]]
@@ -131,7 +132,7 @@ um feedback como a seguir:
 
 include::feedback.adoc[]
 
-NOTE: A seção sobre o feedback no guia do curso pode ser acessado
+NOTE: A seção sobre o feedback, no guia do curso, pode ser acessado
 em: https://github.com/edusantana/guia-geral-ead-computacao-ufpb/blob/master/livro/capitulos/livros-contribuicao.adoc.
 
 [[fig_issue_contribuicao]]
