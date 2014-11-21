@@ -1,4 +1,4 @@
-ca== Asciidoc Book template with rake tasks and github
+== Asciidoc Book template with rake tasks and github
 
 This is the book template used at Universidade Federal da Paraíba for a online course (Licenciatura em Computação a Distância).
 
