@@ -1,9 +1,9 @@
-== Asciidoc Book template with rake tasks and github
+ca== Asciidoc Book template with rake tasks and github
 
 This is the book template used at Universidade Federal da Paraíba for a online course (Licenciatura em Computação a Distância).
 
 Quick info::
-* The main file is `livro/livro.asc`, where chapters (`livro/capitulos/*.adoc`) are included;
+* The main file is `livro/livro.asc`, where chapters (`livro/*.adoc`) are included;
 * `Rakefile` has a lot ot tasks to help manage the book;
 * Tasks thinks that the book is hosted at github;
 * We use asciidoc and dblatex to build only pdf files
