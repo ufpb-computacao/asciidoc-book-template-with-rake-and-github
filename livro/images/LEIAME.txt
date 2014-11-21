@@ -1,5 +1,4 @@
-A gráfica nos impões diversas restrições em
-relação às imagens.
+A gráfica nos impões diversas restrições em relação às imagens.
 
 Portanto as imagens devem seguir as seguintes
 intruções:

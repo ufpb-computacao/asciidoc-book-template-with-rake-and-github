@@ -1,0 +1,168 @@
+== Novo capítulo
+
+:cap: cap1
+:img: images/{cap}
+:online: {gitrepo}/blob/master/livro/code/{cap}
+:local: code/{cap}
+
+.Objetivos do capítulo
+____
+Ao final deste capítulo você deverá ser capaz de:
+
+1.  *Lembrar* as três hipóteses de previsão e listar os padrões típicos
+de comportamento de dados históricos, *reproduzindo-os* na realização de
+exercícios teóricos, envolvendo os nomes das técnicas de previsão mais
+utilizadas em processos estacionários, com tendência e com
+sazonalidade.
+
+2.  *Entender*  as  diferenças  entre  as  técnicas existentes,
+*comparando* cada uma com as diferentes hipóteses e padrão de dados.
+
+3.  *Escolher* e aplicar, de forma consciente, uma das técnicas,
+*implementando* um programa específico ou utilizando um aplicativo
+disponível  no mercado.
+
+4.  *Analisar*  as  diferentes  medidas  de  erro, *diferenciando-as*,
+*atribuindo* significados de importância e *entendendo* em quais
+circunstâncias  cada uma delas é mais adequada.
+
+5.  *Avaliar* os resultados obtidos por meio do emprego da técnica de
+previsão, *estimando* o impacto da acuracidade e das incertezas
+associadas a todo o processo.
+
+____
+
+[cols="^13,^10,^10,^10,^10,^10,^10", grid="cols",frame="none"]
+|====
+1.2+s| Conhecimento 6+s| Processo Cognitivo
+| Lembrar         |Entender  | Aplicar |  Analisar | Avaliar | Criar
+| Factual  |Objetivo 1|||||
+| Conceitual |Objetivo 2|Objetivo 3||||
+| Procedural |||Objetivo 4|||
+| Metacognitivo ||||||Objetivo 5
+|  2+s|Conhecimento 2+s|Competência 2+s|Habilidade
+|====
+
+A *elaboração dos objetivos de aprendizagem* e *divisão das seções* do
+capítulo seguem a taxonomia de Bloom revisada, para
+compreender esta classificação recomendo a leitura de  ``Taxonomia de
+Bloom: revisão teórica e apresentação das adequações do instrumento
+para definição de objetivos instrucionai'', disponível em
+http://www.scielo.br/pdf/gp/v17n2/a15v17n2.pdf.
+
+.Dimensão do conhecimento da Taxonomia de Bloom revisada
+image::{img}/bloom.eps[]
+
+
+=== Terminologia
+
+Conhecimento Efetivo/Factual:: Relacionado ao conteúdo básico que 
+o discente deve dominar a fim de que consiga realizar e resolver 
+problemas apoiados nesse conhecimento. Relacionado aos fatos que 
+não precisam ser entendidos ou combinados, apenas reproduzidos 
+como apresentados.
+
+- Conhecimento da Terminologia; 
+
+=== Detalhes e elementos específicos
+
+Conhecimento Efetivo/Factual:: Relacionado ao conteúdo básico que 
+o discente deve dominar a fim de que consiga realizar e resolver 
+problemas apoiados nesse conhecimento. Relacionado aos fatos que 
+não precisam ser entendidos ou combinados, apenas reproduzidos 
+como apresentados.
+
+- Conhecimento de detalhes e elementos específicos.
+
+=== Classificação e categorização
+
+Conhecimento Conceitual:: Relacionado à inter-relação dos 
+elementos básicos num contexto mais elaborado que os discentes 
+seriam capazes de descobrir. Elementos mais simples foram abordados 
+e agora precisam ser conectados. Esquemas, estruturas e modelos 
+foram organizados e explicados. Nessa fase, não é a aplicação de um 
+modelo que é importante, mas a consciência de sua existência.
+
+- Conhecimento de classificação e categorização; 
+
+=== Princípios e generalizações
+Conhecimento Conceitual:: Relacionado à inter-relação dos 
+elementos básicos num contexto mais elaborado que os discentes 
+seriam capazes de descobrir. Elementos mais simples foram abordados 
+e agora precisam ser conectados. Esquemas, estruturas e modelos 
+foram organizados e explicados. Nessa fase, não é a aplicação de um 
+modelo que é importante, mas a consciência de sua existência.
+
+- Conhecimento de princípios e generalizações; 
+
+
+=== Teorias, modelos e estruturas
+Conhecimento Conceitual:: Relacionado à inter-relação dos 
+elementos básicos num contexto mais elaborado que os discentes 
+seriam capazes de descobrir. Elementos mais simples foram abordados 
+e agora precisam ser conectados. Esquemas, estruturas e modelos 
+foram organizados e explicados. Nessa fase, não é a aplicação de um 
+modelo que é importante, mas a consciência de sua existência.
+
+- Conhecimento de teorias, modelos e estruturas.
+
+=== Conteúdos específicos, habilidades e algoritmos
+Conhecimento Procedural:: relacionado ao conhecimento de ``como 
+realizar alguma coisa'' utilizando métodos, critérios, algoritmos e 
+técnicas. Nesse momento, o conhecimento abstrato começa a ser 
+estimulado, mas dentro de um contexto único e não interdisciplinar.
+
+- Conhecimento de conteúdos específicos, habilidades e algoritmos; 
+
+=== Técnicas específicas e métodos
+Conhecimento Procedural:: Relacionado ao conhecimento de ``como 
+realizar alguma coisa'' utilizando métodos, critérios, algoritmos e 
+técnicas. Nesse momento, o conhecimento abstrato começa a ser 
+estimulado, mas dentro de um contexto único e não interdisciplinar.
+
+- Conhecimento de técnicas específicas e métodos; 
+
+=== Critérios e percepção de como e quando usar um procedimento específico.
+Conhecimento Procedural:: Relacionado ao conhecimento de ``como 
+realizar alguma coisa'' utilizando métodos, critérios, algoritmos e 
+técnicas. Nesse momento, o conhecimento abstrato começa a ser 
+estimulado, mas dentro de um contexto único e não interdisciplinar.
+
+- Conhecimento de critérios e percepção de como e quando usar um procedimento específico.
+
+=== Conhecimento estratégico
+Conhecimento Metacognitivo:: Relacionado ao reconhecimento da 
+cognição em geral e da consciência da amplitude e profundidade de 
+conhecimento adquirido de um determinado conteúdo. Em contraste 
+com o conhecimento procedural, esse conhecimento é relacionado 
+à interdisciplinaridade. A ideia principal é utilizar conhecimentos 
+previamente assimilados (interdisciplinares) para resolução de 
+problemas e/ou a escolha do melhor método, teoria ou estrutura.
+
+- Conhecimento estratégico; 
+
+=== Contextos preferenciais e situações de aprendizagem (estilos)
+Conhecimento Metacognitivo:: Relacionado ao reconhecimento da 
+cognição em geral e da consciência da amplitude e profundidade de 
+conhecimento adquirido de um determinado conteúdo. Em contraste 
+com o conhecimento procedural, esse conhecimento é relacionado 
+à interdisciplinaridade. A ideia principal é utilizar conhecimentos 
+previamente assimilados (interdisciplinares) para resolução de 
+problemas e/ou a escolha do melhor método, teoria ou estrutura.
+
+- Conhecimento sobre atividades cognitivas  incluindo contextos preferenciais e situações de aprendizagem (estilos); 
+
+=== Autoconhecimento
+Conhecimento Metacognitivo:: Relacionado ao reconhecimento da 
+cognição em geral e da consciência da amplitude e profundidade de 
+conhecimento adquirido de um determinado conteúdo. Em contraste 
+com o conhecimento procedural, esse conhecimento é relacionado 
+à interdisciplinaridade. A ideia principal é utilizar conhecimentos 
+previamente assimilados (interdisciplinares) para resolução de 
+problemas e/ou a escolha do melhor método, teoria ou estrutura.
+
+- Autoconhecimento
+
+=== Recapitulando
+
+Revisão do que foi aprendido. Não apresentar nada novo.

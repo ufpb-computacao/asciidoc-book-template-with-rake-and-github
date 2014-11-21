@@ -3,7 +3,7 @@
 == Prefácio
 
 :cap: prefacio
-:online: {gitrepo}/blob/{edition}/livro/capitulos/code/{cap}
+:online: {gitrepo}/blob/{edition}/livro/code/{cap}
 :local: code/{cap}
 
 .Baixando a versão mais nova deste livro
@@ -95,7 +95,7 @@ Os códigos ou comandos são apresentados com a seguinte formação:
 
 No exemplo a seguir, temos outra apresentação de código fonte. Desta
 vez de um arquivo _{prefacio-code}_, que se encontra dentro do diretório
-_livro/capitulos/code/{cap}_.  O diretório _{cap}_ indica o capítulo
+_livro/code/{cap}_.  O diretório _{cap}_ indica o capítulo
 onde o código está relacionado.
 
 :srcfile: {prefacio-code}
@@ -114,14 +114,14 @@ include::{local}/{srcfile}[]
 Recomendamos duas formas de acessar os códigos fontes contidos neste livro:
 
 Acesso on-line individual::
-{gitrepo}/tree/{edition}/livro/capitulos/code
+{gitrepo}/tree/{edition}/livro/code
 
 Baixando zip contendo os códigos::
 
 Versão atual::: {gitrepo}/archive/{edition}.zip
 
 NOTE: Independente do método utilizado para acessar os arquivos, os códigos
-fontes estão organizados por capítulos no diretório `livro/capitulos/code`.
+fontes estão organizados por capítulos no diretório `livro/code`.
 
 endif::prefacio-code[]
 
@@ -136,7 +136,7 @@ um feedback como a seguir:
 include::feedback.adoc[]
 
 NOTE: A seção sobre o feedback, no guia do curso, pode ser acessado
-em: https://github.com/edusantana/guia-geral-ead-computacao-ufpb/blob/master/livro/capitulos/livros-contribuicao.adoc.
+em: https://github.com/edusantana/guia-geral-ead-computacao-ufpb/blob/master/livro/livros-contribuicao.adoc.
 
 [[fig_issue_contribuicao]]
 .Exemplo de contribuição

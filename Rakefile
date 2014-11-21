@@ -6,7 +6,7 @@ require 'open3'
 
 task :default => [:wip]
 
-SOURCE_FILES = FileList['livro/livro.asc', 'livro/capitulos/*']
+SOURCE_FILES = FileList['livro/livro.asc', 'livro/*']
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`.strip
 @RELEASE_DIR = "releases/#{CURRENT_BRANCH}"
 @BOOK_SOURCE_DIR = 'livro'
@@ -60,7 +60,7 @@ namespace "wip" do
   task :build => [WIP_ADOC, :sync] do
     DRAFT_COMMAND = "--dblatex-opts '-P draft.mode=yes'"
     prefacio_code_att = ""
-    PREFACIO_CODE_DIR = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/capitulos/code/prefacio"
+    PREFACIO_CODE_DIR = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/code/prefacio"
     if Dir.exist?(PREFACIO_CODE_DIR) then
       Dir.chdir(PREFACIO_CODE_DIR) do
         prefacio_code_file = Dir.glob("*").first
@@ -326,7 +326,7 @@ namespace "release" do
     livro_pdf = "#{release_dir}/livro/livro.pdf"
     
     prefacio_code_att = ""
-    PREFACIO_CODE_DIR = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/capitulos/code/prefacio"
+    PREFACIO_CODE_DIR = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/code/prefacio"
     if Dir.exist?(PREFACIO_CODE_DIR) then
       Dir.chdir(PREFACIO_CODE_DIR) do
         prefacio_code_file = Dir.glob("*").first
