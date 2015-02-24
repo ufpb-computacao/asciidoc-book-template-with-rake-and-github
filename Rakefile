@@ -234,18 +234,6 @@ FileList['livro/images/**/*.R'].each do |source|
   task :r => rpdf
 end
 
-desc "Build images from dot files"
-task :dot
-task :sync => :dot
-
-FileList['livro/images/**/*.dot'].each do |source|
-  epsfile = source.ext('eps')
-  file epsfile => source do |t|
-    sh "dot -Teps -o #{t.name} #{t.source}"
-  end
-  task :dot => epsfile
-end
-
 namespace "github" do
   desc "List issues from github milestone. Default milestone state is closed, can also be all."
   task :issues, [:milestone] do |t,args|
