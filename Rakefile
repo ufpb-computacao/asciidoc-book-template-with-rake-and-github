@@ -54,8 +54,6 @@ namespace "wip" do
     Rake::Task["wip:new"].invoke
   end
 
-  EDITORA_PDF = "#{@BOOK_SOURCE_DIR}/editora/editora.pdf"
-  
   desc "build book from #{@RELEASE_DIR}"
   task :build => [WIP_ADOC, :sync] do
     DRAFT_COMMAND = "--dblatex-opts '-P draft.mode=yes'"
@@ -185,13 +183,13 @@ namespace "tag" do
     date = Date.today.strftime "%d/%m/%Y"
     history, s = Open3.capture2("git log --reverse --format='- %s. ' #{args.tag}..HEAD")
     revision = "\n
-    <revision>
-      <revnumber>#{edition}</revnumber>
-      <date>#{date}</date>
-      <authorinitials>#{authors}</authorinitials>
-      <revremark>
+<revision>
+  <revnumber>#{edition}</revnumber>
+  <date>#{date}</date>
+  <authorinitials>#{authors}</authorinitials>
+  <revremark>
 #{history}      </revremark>
-    </revision>\n\n"
+</revision>\n\n"
     puts revision
   end
 
@@ -309,7 +307,13 @@ namespace "release" do
     @RELEASE_DIR = "releases/#{args.tag}"
     release_dir = "releases/#{args.tag}"
     target_file = "releases/#{PROJECT_NAME}-#{@tag}.pdf"
-    editora_file = "#{release_dir}/livro/editora/editora.pdf"
+    ficha_file = "#{release_dir}/livro/editora/ficha-#{args.tag}.pdf"
+    if File.exist?(ficha_file) then
+      editora_file = ficha_file
+    else
+      puts "Using 'editora.pdf' instead of ficha-#{args.tag}.pdf"
+      editora_file = "#{release_dir}/livro/editora/editora.pdf"
+    end
     livro_source = "#{release_dir}/livro/livro.asc"
     livro_pdf = "#{release_dir}/livro/livro.pdf"
     
