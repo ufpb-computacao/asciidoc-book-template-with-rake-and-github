@@ -1,0 +1,61 @@
+= Caderno de atividades: Capítulo 1 =
+
+== Nome do capítulo
+
+=== Modelo e Modelagem
+
+==== Atividade: Reconhecendo Modelos
+
+Classifique os exemplos baixo marcando com um “X” o que é um 
+modelo ou concreto.
+
+[options="header", cols="2^,1^,1^"]
+|====
+| Objeto          | Modelo | Concreto
+| Maquete         |   X    |
+| Mapa            |        |
+| Carro           |        |
+| Casa construída |        |
+| Diagrama |  | 
+|====
+
+==== Modelagem de Sistemas
+
+===== Atividade: Exemplificando Processo de Modelagem
+
+*Preencha* dois 
+processos informando o _modelo_, a _modelagem_ e algumas _etapas após a 
+modelagem_ na próxima tabela da mesma forma.
+
+[options="header", cols="2^,2^,2^,3^"]
+|====
+| Processo | Modelo | Modelagem | Etapas após a modelagem
+| {nbsp} | {nbsp} | {nbsp} | {nbsp} 
+| {nbsp} | {nbsp} | {nbsp} | {nbsp} 
+|====
+
+
+===== Atividade: Exemplificando Modelos
+
+*Pense* em três situações que você desempenha no 
+seu dia a dia e relacione o objeto concreto com o abstrato, 
+e *preencha* na tabela a seguir como na tabela anterior.
+
+[cols="1,1,3", options="header"]
+|====
+| Situação do meu dia a dia | Concreto | Abstrato
+|  |  | 
+|  |  | 
+|  |  | 
+|====
+
+=== Qual o Propósito do UML?
+==== Propósito da linguagem UML
+===== Atividade: Reconhecendo o Propósito da Linguagem UML
+
+*Explique*, com suas palavras, a importância da utilização da Linguagem UML.
+
+|====
+| {nbsp}
+|====
+

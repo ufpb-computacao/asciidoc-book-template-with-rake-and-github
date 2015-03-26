@@ -1,4 +1,4 @@
-livro/AAPDIR
+*.fodt
 
 # Arquivos gerados pelo asciidoc
 livro/*.chunked
