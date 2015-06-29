@@ -16,10 +16,9 @@ Quick info::
 
 ....
 MYBOOK=mybook
-MYUSER=edusantana
 git clone git@github.com:ufpb-computacao/asciidoc-book-template-with-rake-and-github.git $MYBOOK
 cd $MYBOOK
-git remote set-url origin git@github.com:$MYUSER/$MYBOOK.git
+git remote set-url origin git@github.com:ufpb-computacao/$MYBOOK.git
 git rm LICENSE; git commit -m "Using asciidoc-book-template-with-rake-and-github"
 git push origin master
 ....
