@@ -12,7 +12,7 @@ CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`.strip
 @BOOK_SOURCE_DIR = 'livro'
 @BOOK_SOURCE = 'livro/livro.asc'
 @BOOK_TARGET = 'livro/livro.pdf'
-@A2X_BIN = '~/ambiente/asciidoc/a2x.py'
+@A2X_BIN = '/usr/bin/a2x.py'
 WIP_ADOC = "#{@BOOK_SOURCE_DIR}/wip.adoc"
 RELEASE_BOOK_SOURCE = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.asc"
 RELEASE_BOOK  = "#{@RELEASE_DIR}/#{@BOOK_SOURCE_DIR}/livro.pdf"
@@ -30,7 +30,7 @@ GITHUB_REPO = `git config remote.origin.url`.strip.gsub('git@github.com:','').gs
 REPOSITORIO_PATH=`git rev-parse --show-toplevel`.strip
 #@RELEASE_DIR = ''
 @tag = ''
-@SEJDA_BIN = '/home/santana/ambiente/sejda/bin/sejda-console'
+@SEJDA_BIN = '/opt/sejda/bin/sejda-console'
 
 directory @RELEASE_DIR
 
